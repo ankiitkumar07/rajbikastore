@@ -1,0 +1,7 @@
+<div class="card">
+    <div class="card-body">
+        <p class="card-text">{{ productItem.name }}</p>
+        <a [routerLink]="['product/' + productItem.id]" class="btn btn-link" >View Details</a>
+        <button class="btn btn-link" (click)="addToChart(productItem)">Add To Cart</button>
+    </div>
+</div>

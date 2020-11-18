@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "rajbika-store": {
+      "hosting": {
+        "raj-bika": [
+          "rajbika-store"
+        ]
+      }
+    }
+  }
+}

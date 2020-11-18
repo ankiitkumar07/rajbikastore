@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h1 class="display-5 text-center">
+                    Manage Your Products
+                </h1>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    <div class="row my-4">
+        <div class="col-md-8">
+            <input type="text" class="form-control" placeholder="Search for product">
+        </div>
+        <div class="col-md-4">
+            <span>Or</span>
+            <a type="button" class="btn btn-primary" [routerLink]="['add']" >Add new product</a>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-4" *ngFor="let productItem of productList">
+            <app-product-item [product]="productItem"></app-product-item>
+        </div>
+    </div>
+</div>

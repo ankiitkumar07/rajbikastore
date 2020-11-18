@@ -1,0 +1,10 @@
+<div class="card">
+    <a [routerLink]="['show/' + product.id]" class="spill-over"></a>
+    <div class="card-header">
+        <h3 class="card-title">{{ product.name }}</h3>
+    </div>
+    <div class="card-body">
+        <p class="card-text">Description : {{ product.description | slice: 0:70 }}...</p>
+        <p class="card-text">Quantity Left : {{ product.quantity }}  </p>
+    </div>
+</div>

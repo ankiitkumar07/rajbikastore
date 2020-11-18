@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <app-shop-filter></app-shop-filter>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-3" *ngFor="let product of productList">
+                    <app-product-list [productItem]="product"></app-product-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
