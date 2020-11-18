@@ -1,6 +1,9 @@
 # RajBika
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+This project is an online store / ekart.
+You can visit the project website [here](https://rajbikastore.herokuapp.com).
+
 
 ## Development server
 
