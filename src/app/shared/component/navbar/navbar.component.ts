@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
   name: string;
   uid: string;
+  isAdmin: boolean;
   email: string;
   user: User;
 
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit {
             this.user = user;
             this.name = this.user.displayName;
             this.email = this.user.email;
+            this.isAdmin = this.user.isAdmin;
           });
           this.isLoggedIn = true;
           this.uid = user.uid;

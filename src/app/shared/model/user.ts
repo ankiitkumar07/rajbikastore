@@ -11,5 +11,4 @@ export class User {
     isSuperAdmin: boolean = false;
     isInvetoryManager: boolean = false;
     inventoryLocation?: string = null;
-
 }

@@ -32,40 +32,7 @@
           <div class="top"></div>
           <div class="left"></div>
           <div class="right"></div>
-          <a class="nav-link" [routerLink]="['products']">Products</a>
-        </li>
-        <li class="nav-item dropdown">
-            <div class="bottom"></div>
-          <div class="top"></div>
-          <div class="left"></div>
-          <div class="right"></div>
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-            Products
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="products/sada-masala-papad.html">Sada Masala Papad</a>
-            <a class="dropdown-item" href="products/medium-masala-papad.html">Medium Masala Papad</a>
-            <a class="dropdown-item" href="products/tej-masala-papad.html">Tej Masala Papad</a>
-            <a class="dropdown-item" href="products/punjabi-masala-papad.html">Punjabi Masala Papad</a>
-            <a class="dropdown-item" href="products/chana-masala-papad.html">Chana Masala Papad</a>
-            <a class="dropdown-item" href="products/mooth-masala-papad.html">Mooth Masala Papad</a>
-            <div class="dropdown-divider"></div>
-
-            <a class="dropdown-item dropdown-toggle" href="#" id="spartanPersonalCare" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Spartan Personal Care</a>
-            <div class="dropdown-menu second" aria-labelledby="spartanPersonalCare">
-                <a class="dropdown-item" href="/">Spartan Body wash</a>
-                <a class="dropdown-item" href="/">Spartan Handwash</a>
-                <a class="dropdown-item" href="/">Spartan Handcrafted soaps</a>
-            </div>
-
-            <a class="dropdown-item dropdown-toggle" id="spartanUtilities" role="button" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Spartan Utilities</a>
-            <div class="dropdown-menu second" aria-labelledby="spartanUtilities">
-                <a class="dropdown-item" href="/">Spartan Washing Powder</a>
-                <a class="dropdown-item" href="/">Spartan Dishwash Bar</a>
-                <a class="dropdown-item" href="/">Spartan Dishwash Liquid</a>
-            </div>
-            
-          </div>
+          <a class="nav-link" [routerLink]="['shop']">Products</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto" *ngIf="this.isLoggedIn">
@@ -78,10 +45,13 @@
                 {{ name === null ? email : name}}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li class="dropdown-item" ><a class="btn bnt-primary" [routerLink]="['user/profile']">Profile</a></li>
-                  <li class="dropdown-item" ><a class="btn bnt-primary" [routerLink]="['user/address']">Addresses</a></li>
-                  <li class="dropdown-item" ><a class="btn bnt-primary" [routerLink]="['user/cart']">Cart</a></li>
-                  <li class="dropdown-item" ><a class="btn bnt-primary" [routerLink]="['user/wishlist']">Wishlist</a></li>
+                <!-- User Nav Links -->
+                  <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/profile']">Profile</a></li>
+                  <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/address']">Addresses</a></li>
+                  <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/cart']">Cart</a></li>
+                  <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/wishlist']">Wishlist</a></li>
+                  <!-- Admin Nav Links -->
+                  <li class="dropdown-item" *ngIf="this.isAdmin"><a href="" class="btn btn-primary" [routerLink]="['admin']">Admin Dashboard</a></li>
                   <div class="dropdown-divider"></div>
                   <li class="dropdown-item" ><a class="btn bnt-primary" (click)="signout()">Logout</a></li>
               </div>

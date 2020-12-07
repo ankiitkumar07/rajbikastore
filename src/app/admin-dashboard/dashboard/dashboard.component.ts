@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/shared/service/firebase.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _firebaseService: FirebaseService, 
+    private router: Router) { 
+      this._firebaseService.getUser().subscribe(user => {
+        if( user == null ){
+          this.router.navigate(['auth/login']);
+        }else{
+          this._firebaseService.isAdmin(user.uid).subscribe((isAdmin: boolean) => {
+            this.router.navigate(isAdmin ? ['admin'] : [''])
+          });
+        }
+      });
+    }
 
   ngOnInit(): void {
   }
