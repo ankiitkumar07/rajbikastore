@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   isAdmin: boolean;
   email: string;
   user: User;
+  loading: boolean = true;
 
   constructor(
     private _firebaseService: FirebaseService,
@@ -30,6 +31,7 @@ export class NavbarComponent implements OnInit {
             this.name = this.user.displayName;
             this.email = this.user.email;
             this.isAdmin = this.user.isAdmin;
+            this.loading = false;
           });
           this.isLoggedIn = true;
           this.uid = user.uid;

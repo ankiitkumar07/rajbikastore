@@ -21,6 +21,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
+import { LoaderComponent } from './shared/component/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { environment } from 'src/environments/environment';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
+    // LoaderComponent
     // ShopFilterComponent
   ],
   imports: [
@@ -47,6 +49,9 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    // LoaderComponent
+  ]
 })
 export class AppModule { }

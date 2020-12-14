@@ -1,0 +1,73 @@
+<form [formGroup]="addressForm" id="addressFormID">
+	<div class="form-group">
+		<input formControlName="name"
+				[ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+				type="text" 
+				class="form-control" 
+				placeholder="Give your address a name!">
+	</div>
+	<div class="form-group">
+		<input formControlName="addressLine1"
+				[ngClass]="{ 'is-invalid': submitted && f.addressLine1.errors }" 
+				type="text" 
+				class="form-control" 
+				placeholder="Address Line 1">
+	</div>
+	<div class="form-group">
+		<input formControlName="addressLine2"
+				[ngClass]="{ 'is-invalid': submitted && f.addressLine2.errors }" 
+				type="text" 
+				class="form-control" 
+				placeholder="Address Line 2">
+	</div>
+	<div class="form-group">
+		<input formControlName="phoneNumber"
+				[ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+				type="tel" 
+				class="form-control" 
+				placeholder="Mobile Number">
+	</div>
+	<div class="form-group">
+		<input formControlName="pinCode"
+				#pin
+				[ngClass]="{ 'is-invalid': submitted && f.pinCode.errors }"
+				type="tel" 
+				class="form-control" 
+				placeholder="Pincode" 
+				(focusout)="getPostOffices(pin.value)">
+	</div>
+	<div class="form-group">
+		<select class="custom-select" placeholder="Post Office" formControlName="postOffice" id="district">
+			<option value="" disabled selected>Post Office</option>
+			<option *ngFor="let item of postsArray" [value]="item.Name">{{ item.Name }}</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<input formControlName="city"
+				[ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+				type="text" 
+				class="form-control" 
+				placeholder="City" 
+				readonly 
+				[value]="postsArray[0]?.District">
+	</div>
+	<div class="form-group">
+		<input formControlName="state"
+				[ngClass]="{ 'is-invalid': submitted && f.state.errors }"
+				type="text" 
+				class="form-control" 
+				placeholder="State" 
+				readonly 
+				[value]="postsArray[0]?.State">
+	</div>
+	<div class="form-group">
+		<input formControlName="country"
+				[ngClass]="{ 'is-invalid': submitted && f.country.errors }"
+				type="text" 
+				class="form-control" 
+				placeholder="Country" 
+				readonly 
+				[value]="postsArray[0]?.Country">
+	</div>
+	<button (click)="submitAddress()" class="btn btn-primary">Submit</button>
+</form>	

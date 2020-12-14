@@ -37,11 +37,12 @@
       </ul>
       <ul class="navbar-nav ml-auto" *ngIf="this.isLoggedIn">
           <li class="nav-item dropdown">
-              <div class="bottom"></div>
+              <!-- <div class="bottom"></div>
               <div class="top"></div>
               <div class="left"></div>
-              <div class="right"></div>
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+              <div class="right"></div> -->
+              <a class="nav-link dropdown-toggle user-menu" data-toggle="dropdown">
+                <app-loader *ngIf="loading"></app-loader>
                 {{ name === null ? email : name}}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">

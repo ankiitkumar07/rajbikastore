@@ -1,1 +1,18 @@
-<p>cart works!</p>
+<div class="container">
+    <div class="row big-loader justify-content-center" *ngIf="loading">
+        <app-loader></app-loader>
+    </div>
+    <div class="row justify-content-center" *ngIf="cartItems.length === 0 && !loading">
+        <div class="col-12">
+            <h1 class="display-1 text-center my-4">Your cart is empty.</h1>
+        </div>
+        <a [routerLink]="['/shop']" class="btn btn-primary my-4">Start Sopping</a>
+    </div>
+    <div class="row" *>
+        <div class="col-12" *ngFor="let item of cartItems">
+            <div class="card">
+                
+            </div>
+        </div>
+    </div>
+</div>

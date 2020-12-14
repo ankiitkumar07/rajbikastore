@@ -14,6 +14,8 @@ import { ProductShowComponent } from './admin-dashboard/product-management/produ
 import { ProductAddComponent } from './admin-dashboard/product-management/product-add/product-add.component';
 import { ProductComponent } from './shop/product/product.component';
 import { ProductDetailComponent } from './shop/product/product-detail/product-detail.component';
+import { Cart } from './shared/model/cart';
+import { CartComponent } from './shop/cart/cart.component';
 
 
 const routes: Routes = [
@@ -73,6 +75,10 @@ const routes: Routes = [
       {
         path: 'orders',
         component: OrderComponent
+      },
+      {
+        path: 'cart',
+        component: CartComponent
       }
     ]
   },

@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DatabaseReference } from '@angular/fire/database/interfaces';
 import { Observable, Subject } from 'rxjs';
-import { Product } from '../model/product';
+import { Product } from '../model/product.model';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../model/user';
+import { Address } from '../model/address.model';
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +63,14 @@ export class FirebaseService {
     return this.db.object('users/' + uid + '/isAdmin').valueChanges();
   }
 
+  getAddress(uid: string): Observable<any>{
+  	return this.db.list('users/' + uid + '/address').valueChanges();
+  }
+
+  saveUserAddress(address: Address, uid: string){
+    return this.db.database.ref('users/' + uid + '/address').child(address.name).set(address);
+  }
+
    getProducts(): Observable<any>{
      return this.db.list('products').valueChanges();
    }
@@ -76,5 +85,9 @@ export class FirebaseService {
 
    getProduct(id: string): Observable<any> {
     return this.db.object('products/' + id).valueChanges();
+   }
+
+   getCartItems(id: string){
+     return this.db.list('cart/' + id).valueChanges();
    }
 }

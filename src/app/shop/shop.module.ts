@@ -6,6 +6,7 @@ import { CartComponent } from './cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ShopFilterComponent } from '../shared/component/shop-filter/shop-filter.component';
+import { UserModule } from '../user/user.module';
 
 
 
@@ -15,10 +16,12 @@ import { ShopFilterComponent } from '../shared/component/shop-filter/shop-filter
     ProductComponent,
     CartComponent,
     ProductDetailComponent,
-    ShopFilterComponent
+    ShopFilterComponent,
+  
   ],
   imports: [
     CommonModule,
+    UserModule,
     RouterModule
   ]
 })

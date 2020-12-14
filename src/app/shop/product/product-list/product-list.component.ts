@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Product } from 'src/app/shared/model/product';
+import { Product } from 'src/app/shared/model/product.model';
 import { FirebaseService } from 'src/app/shared/service/firebase.service';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 

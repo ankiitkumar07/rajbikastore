@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/shared/model/product';
+import { Product } from 'src/app/shared/model/product.model';
 import { FirebaseService } from 'src/app/shared/service/firebase.service';
 
 @Component({

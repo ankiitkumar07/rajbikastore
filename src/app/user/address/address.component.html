@@ -1,1 +1,53 @@
-<p>address works!</p>
+<div class="container">
+    <div class="row justify-content-center" *ngIf="addresses.length === 0 && !loading">
+        <div class="col-10 justify-content-center">
+            <h3 class="display-4 align-self-center">There are no addresses for you!</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center big-loader" *ngIf="loading" >
+        <app-loader></app-loader>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-12" *ngFor="let address of addresses">
+            <div class="card">
+                <div class="card-header">
+                    {{ address.name }}
+                </div>
+                <div class="card-body">
+                    <p>Flat / Building : {{ address.addressLine1 }}</p>
+                    <p>Area: {{ address.addressLine2 }}</p>
+                    <p>Phone Number: {{ address.phoneNumber }} </p>
+                    <!-- <input type="text" class="form-input" id="emailInput"> -->
+                    <button type="button" class="btn">Edit</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 d-flex justify-content-center my-3">
+            <button type="button" [disabled]="loading" class="btn btn-primary" data-toggle="modal" data-target="#openAddressForm"> Add
+                another Address! </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="openAddressForm" tabindex="-1" role="dialog" aria-labelledby="openAddressFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="openAddressFormLabel">Add / Edit Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <app-address-form></app-address-form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

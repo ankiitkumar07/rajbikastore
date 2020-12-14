@@ -54,3 +54,11 @@
 .nav-item.active:hover>.bottom,.nav-item.active:hover>.top,.nav-item.active:hover>.left,.nav-item.active:hover>.right{
     display: none;
 }
+
+.user-menu{
+    display: flex;
+    min-width: 150px;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+}
