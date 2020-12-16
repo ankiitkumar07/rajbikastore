@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private _firebaseService: FirebaseService, 
-    private router: Router) { 
+    public router: Router) { 
       this._firebaseService.getUser().subscribe(user => {
         if( user == null ){
           this.router.navigate(['auth/login']);
