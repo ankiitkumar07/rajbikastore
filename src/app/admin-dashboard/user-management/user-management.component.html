@@ -11,6 +11,66 @@
     <div class="row">
         <div class="col-md-12">
             <input class="form-control" type="text" placeholder="Search User">
+            <div class="accordion" id="myAccordion">
+                <div class="card" *ngIf="role === 'super'">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link" data-toggle="collapse"
+                                data-target="#collapseOne">Super Admins</button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#myAccordion">
+                        <div class="card-body">
+                            <p *ngFor="let sa of getSuperAdmins()">
+                                {{sa.displayName}} -> {{sa.email}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" *ngIf="role === 'admin' || role === 'super'">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link collapsed" data-toggle="collapse"
+                                data-target="#collapseTwo">Admins</button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#myAccordion">
+                        <div class="card-body">
+                        <p *ngFor="let admin of getAdmins()">{{ admin.displayName }} -> {{ admin.email }} </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link collapsed" data-toggle="collapse"
+                                data-target="#collapseThree">Inventory Managers</button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#myAccordion">
+                        <div class="card-body">
+                            <p *ngFor="let im of getInventoryManagers()">
+                                {{ im.displayName }} -> {{ im.email }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" *ngIf="role === 'admin' || role === 'super'">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link collapsed" data-toggle="collapse"
+                                data-target="#collapseFour">Customers</button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#myAccordion">
+                        <div class="card-body">
+                            <p *ngFor="let user of getCustomers()">
+                                {{ user.displayName }} -> {{ user.email }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

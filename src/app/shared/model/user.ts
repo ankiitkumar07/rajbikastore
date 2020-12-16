@@ -1,6 +1,7 @@
 import { Address } from './address.model';
 
 export class User {
+    id?: string;
     displayName: string;
     email: string;
     phoneNum: number;

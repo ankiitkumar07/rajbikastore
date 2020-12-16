@@ -24,11 +24,10 @@
 							placeholder="Quantity">
 				</div>
 				<div class="form-group">
-					<input formControlName="size"
-							[ngClass]="{ 'is-invalid': submitted && f.size.errors }"
-							type="tel" 
-							class="form-control" 
-							placeholder="Product Size">
+					<select class="custom-select" placeholder="Size" formControlName="size" id="size">
+						<option value="" disabled selected>Size</option>
+						<option *ngFor="let item of size" [value]="item[0] + item[1] + item[2] + item[3] + item[4]">{{ item.name }} ({{item[0] + item[1] + item[2] + item[3] + item[4]}})</option>
+					</select>
 				</div>
 				<div class="form-group">
 					<input formControlName="ppu"

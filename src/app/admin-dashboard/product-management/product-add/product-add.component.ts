@@ -14,6 +14,7 @@ export class ProductAddComponent implements OnInit {
   productForm: FormGroup;
   product: Product;
   category: any = ['Clothes', 'Footwear', 'Papad', 'Masale'];
+  size: any[] = [];
   submitted: boolean = false;
 
   constructor(
@@ -30,6 +31,10 @@ export class ProductAddComponent implements OnInit {
       category: ['', Validators.required],
       discount: ['', Validators.required]
     });
+    this._firebaseService.getProductSize().subscribe(sizes => {
+      this.size = sizes
+      console.log(this.size)
+    })
    }
 
   ngOnInit(): void {
