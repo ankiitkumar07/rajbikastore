@@ -1,3 +1,10 @@
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="let item of filters">{{item}}</li>
-  </ul>
+<ul class="expand filter-list main">
+  <li *ngFor="let item of categories" (click)="toggleList($event)">
+    {{ item.id }}
+    <ul class="filter-list sub">
+      <li *ngFor="let cat of item.data | keyvalue" >
+        {{ cat.value }}
+      </li>
+    </ul>
+  </li>
+</ul>

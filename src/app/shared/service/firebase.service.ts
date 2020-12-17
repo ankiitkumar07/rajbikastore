@@ -120,4 +120,19 @@ export class FirebaseService {
     return this.db.list('inventory-managers').valueChanges();
   }
 
+  //Shop filter methods
+  getCategories(){
+    return this.db.list('product-category').snapshotChanges().pipe(map((categories: any[]) => categories.map(
+      category => ({
+        id: category.key, 
+        data: category.payload.val()
+      })
+    )))
+  }
+
+  getCategoryItem(category: string){
+    console.log(category)
+    return this.db.list('product-category/' + category).valueChanges()
+  }
+
 }

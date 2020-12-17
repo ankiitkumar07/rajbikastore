@@ -1,0 +1,24 @@
+ul.filter-list{
+    margin: 0;
+    line-height: 20px;
+    list-style: none;
+    list-style: none;
+    font-size: 12px;
+    cursor: pointer;
+    
+    &.main{
+        padding-left: 0;
+        font-weight: 800;
+        & > li::before{
+            content: '+';
+        }
+    }
+
+    & ul.sub{
+        padding-left: 22px;
+        font-weight: 100;
+        & > li {
+            content: '';
+        }
+    }
+}

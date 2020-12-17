@@ -107,6 +107,10 @@ a:hover{
     position: relative;
     min-height: 380px;
 }
+
+.bg-shadow{
+    box-shadow: 1px 1px 1px grey;
+}
 .my-link{
     position: absolute;
     bottom: 5%;
