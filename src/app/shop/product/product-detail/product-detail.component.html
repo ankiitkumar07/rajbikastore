@@ -1,1 +1,108 @@
-<p>product-detail works!</p>
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-md-9">
+            <div class="row mb-4">
+                <div class="col-md-2">
+                    <div class="row">
+                        <div class="col-md-12 col-2 mb-2">
+                            <img class="img-thumbnail round" [src]="product?.imgURL" alt="">
+                        </div>
+                        <div class="col-md-12 col-2 mb-2">
+                            <img class="img-thumbnail round" [src]="product?.imgURL" alt="">
+                        </div>
+                        <div class="col-md-12 col-2 mb-2">
+                            <img class="img-thumbnail round" [src]="product?.imgURL" alt="">
+                        </div>
+                        <div class="col-md-12 col-2 mb-2">
+                            <img class="img-thumbnail round"  [src]="product?.imgURL" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <img [src]="product?.imgURL" alt="some text" class="img-thumbnail round">
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-10 offset-md-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="display-1 card-title">{{ product?.name }}</h1>
+                        </div>
+                    </div>
+                    <!-- <h5 class="display-1">{{ product?.name }}</h5> -->
+                </div>
+            </div>
+            <!-- <div class="row my-4">
+                <div class="col-md-10 offset-md-2 d-flex justify-content-between">
+                    <p>Select a size:</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Small (100gm)</button>
+                        <button type="button" class="btn btn-secondary">Medium (400gm)</button>
+                        <button type="button" class="btn btn-secondary">Large(700gm)</button>
+                    </div>
+                    <button class="btn btn-primary" >Add To Cart</button>
+                </div>
+            </div> -->
+            <div class="row mb-4">
+                <div class="col-md-10 offset-md-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Product Description:</h3>
+                            <p class="card-text">{{ product?.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text"><b>Check availibility in your area: </b></p>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text"><b>Select Size:</b></p>
+                            <!-- <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-secondary">Small (100gm)</button>
+                                <button type="button" class="btn btn-secondary">Medium (400gm)</button>
+                                <button type="button" class="btn btn-secondary">Large (700gm)</button>
+                            </div> -->
+
+                            <select name="size" id="size" class="form-control mb-4">
+                                <option value="">Select Size</option>
+                                <option value="small">Small (100gm)</option>
+                                <option value="medium">Medium (400gm)</option>
+                                <option value="large">Large (700gm)</option>
+                            </select>
+
+                            <button class="btn btn-secondary">Add To Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text"><b>Rating will come here.</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 offset-md-2">
+
+        </div>
+    </div>
+</div>
