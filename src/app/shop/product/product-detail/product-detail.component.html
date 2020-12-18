@@ -1,27 +1,9 @@
 <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-md-9">
-            <div class="row mb-4">
-                <div class="col-md-2">
-                    <div class="row">
-                        <div class="col-md-12 col-2 mb-2">
-                            <img class="img-thumbnail round" [src]="product?.imgURL" alt="">
-                        </div>
-                        <div class="col-md-12 col-2 mb-2">
-                            <img class="img-thumbnail round" [src]="product?.imgURL" alt="">
-                        </div>
-                        <div class="col-md-12 col-2 mb-2">
-                            <img class="img-thumbnail round" [src]="product?.imgURL" alt="">
-                        </div>
-                        <div class="col-md-12 col-2 mb-2">
-                            <img class="img-thumbnail round"  [src]="product?.imgURL" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-10">
-                    <img [src]="product?.imgURL" alt="some text" class="img-thumbnail round">
-                </div>
-            </div>
+
+            <app-product-image [productId]="product?.id"></app-product-image>
+
             <div class="row mb-4">
                 <div class="col-md-10 offset-md-2">
                     <div class="card">
@@ -29,20 +11,8 @@
                             <h1 class="display-1 card-title">{{ product?.name }}</h1>
                         </div>
                     </div>
-                    <!-- <h5 class="display-1">{{ product?.name }}</h5> -->
                 </div>
             </div>
-            <!-- <div class="row my-4">
-                <div class="col-md-10 offset-md-2 d-flex justify-content-between">
-                    <p>Select a size:</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Small (100gm)</button>
-                        <button type="button" class="btn btn-secondary">Medium (400gm)</button>
-                        <button type="button" class="btn btn-secondary">Large(700gm)</button>
-                    </div>
-                    <button class="btn btn-primary" >Add To Cart</button>
-                </div>
-            </div> -->
             <div class="row mb-4">
                 <div class="col-md-10 offset-md-2">
                     <div class="card">

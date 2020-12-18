@@ -2,3 +2,24 @@ span {
     padding: 12px;
 }
 
+.table-header{
+    background-color: #000;
+    color: white;
+    padding: 0.9rem 0;
+    box-shadow: 0px 2px 2px black;
+}
+
+.table-body{
+    background-color: #fff;
+    border-bottom: 1px solid darkgrey;
+    padding: 0.4rem 0rem;
+}
+
+.modal-dialog#add {
+    width: 90% !important;
+    max-width: inherit;
+}
+
+a>i{
+    color: black;
+}

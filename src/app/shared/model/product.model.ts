@@ -5,6 +5,7 @@ export class Product {
     category: string;
     description: string;
     discount: number;
+    images: string[];
     metatitle: string;
     ppu: number;
     quantity: number;

@@ -1,3 +1,18 @@
+<div class="container">
+    <div class="row my-3">
+        <div class="col-4">
+            <div class="row">
+                <div class="col-md-6 my-1" *ngFor="let image of product?.images | keyvalue">
+                    <img class="img-thumbnail round" [src]="image.value" [alt]="image.value">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="row my-4">
     <div class="col-md-12">
         <div class="card">

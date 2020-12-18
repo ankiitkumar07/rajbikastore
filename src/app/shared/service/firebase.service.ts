@@ -13,7 +13,7 @@ import { Address } from '../model/address.model';
   providedIn: 'root'
 })
 export class FirebaseService {
-
+  
   private user: User;
   private currentUser;
 
@@ -74,6 +74,10 @@ export class FirebaseService {
 
   getProducts(): Observable<any> {
     return this.db.list('products').valueChanges();
+  }
+
+  getProductImages(id: string) {
+    return this.db.list('products/' + id + '/images').valueChanges();
   }
 
   getProductSize(){

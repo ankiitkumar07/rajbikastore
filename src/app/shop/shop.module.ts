@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ShopFilterComponent } from '../shared/component/shop-filter/shop-filter.component';
 import { UserModule } from '../user/user.module';
+import { ProductImageComponent } from './product/product-detail/product-image/product-image.component';
 
 
 
@@ -17,6 +18,7 @@ import { UserModule } from '../user/user.module';
     CartComponent,
     ProductDetailComponent,
     ShopFilterComponent,
+    ProductImageComponent,
   
   ],
   imports: [
