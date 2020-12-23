@@ -1,3 +1,5 @@
+import { ProductSKU } from "./product-sku.model";
+
 export class Product {
     id: string;
     name: string;
@@ -8,6 +10,7 @@ export class Product {
     images: string[];
     metatitle: string;
     ppu: number;
+    sku: ProductSKU[];
     quantity: number;
     size: string;
 

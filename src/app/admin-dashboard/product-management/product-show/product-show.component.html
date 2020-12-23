@@ -1,54 +1,85 @@
-<div class="container">
-    <div class="row my-3">
-        <div class="col-4">
-            <div class="row">
-                <div class="col-md-6 my-1" *ngFor="let image of product?.images | keyvalue">
-                    <img class="img-thumbnail round" [src]="image.value" [alt]="image.value">
+<form [formGroup]="productUpdate">
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-md-4">
+                <div class="row my-4">
+                    <div class="col-md-6 my-1" *ngFor="let image of product?.images | keyvalue">
+                        <img class="img-thumbnail round" [src]="image.value" [alt]="image.value">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="file">Add photos</label>
+                            <div class="input-group">
+                                <input formControlName="file" id="file"  type="file" class="form-control" multiple="">
+                                <!-- <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                                    <div *ngIf="f.file.errors.required">File is required.</div>
+                                </div> -->
+                                <div class="input-group-append">
+                                    <button disabled class="btn btn-outline-secondary" (click)="addProductPhotos()"
+                                    type="button"><i class="bi bi-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" [value]="product?.name" placeholder="Name" aria-label="Name"
+                        (keydown)="toggleButtonDisable($event)" name="name" aria-describedby="product-name">
+                    <div class="input-group-append">
+                        <button disabled class="btn btn-outline-secondary" (click)="updateProduct($event)"
+                            type="button"><i class="bi bi-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" [value]="product?.description" placeholder="Description"
+                        aria-label="Description" (keydown)="toggleButtonDisable($event)" name="description"
+                        aria-describedby="product-description">
+                    <div class="input-group-append">
+                        <button disabled class="btn btn-outline-secondary" (click)="updateProduct($event)"
+                            type="button"><i class="bi bi-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" [value]="product?.quantity" placeholder="Quantity"
+                        aria-label="Quantity" (keydown)="toggleButtonDisable($event)" name="quantity"
+                        aria-describedby="product-quantity">
+                    <div class="input-group-append">
+                        <button disabled class="btn btn-outline-secondary" (click)="updateProduct($event)"
+                            type="button"><i class="bi bi-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <select class="form-control" (change)="toggleButtonDisable($event)" id="inputGroupSelect04"
+                        name="size">
+                        <option selected>Size</option>
+                        <option *ngFor="let item of size"
+                            [selected]="(item[0] + item[1] + item[2] + item[3] + item[4]) === product?.size"
+                            [value]="item[0] + item[1] + item[2] + item[3] + item[4]">{{ item.name }} ({{item[0] +
+                            item[1] + item[2] + item[3] + item[4]}})</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button disabled class="btn btn-outline-secondary" (click)="updateProduct($event)"
+                            type="button"><i class="bi bi-chevron-right"></i></button>
+                    </div>
                 </div>
 
+                <div class="input-group mb-3">
+                    <select class="form-control" (change)="toggleButtonDisable($event)" placeholder="Category"
+                        name="category" formControlName="category" id="district">
+                        <option value="" disabled>Category</option>
+                        <option *ngFor="let item of category" [selected]="item === product?.category" [value]="item">{{
+                            item }}</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button disabled class="btn btn-outline-secondary" (click)="updateProduct($event)"
+                            type="button"><i class="bi bi-chevron-right"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-<div class="row my-4">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">{{ product?.name }}</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">{{ product?.description }}</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">{{ product?.quantity }}</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">{{ product?.ppu }}</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">{{ product?.category }}</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">{{ product?.discount }}</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <p class="card-text">{{ product?.size }}</p>
-            </div>
-        </div>
-    </div>
-</div>
+</form>

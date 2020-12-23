@@ -20,6 +20,7 @@ import { HomeComponent } from './layout/home/home.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 
@@ -46,7 +47,8 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
     // Firebase Modules
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row" *ngIf="productSKU !== null">
+        <div class="col-md-12">
+            <h1>You don't have any SKU for this product</h1>
+        </div>
+    </div>
+    <div class="row" [ngClass]="{'hidden': formHidden === true}">
+        <div class="col-md-12">
+            <form [formGroup]="productSKUForm" class="form-inline" (submit)="addSKU()">
+                <div class="form-group">
+                    <select  formControlName="size" class="form-control" id="product-size">
+                        <option selected>Size</option>
+                        <option *ngFor="let item of size"
+                            [selected]="(item[0] + item[1] + item[2] + item[3] + item[4]) === product?.size"
+                            [value]="item.name">{{ item.name }} ({{item[0]
+                            +
+                            item[1] + item[2] + item[3] + item[4]}})</option>
+                    </select>
+                    <select  formControlName="color" class="form-control ml-1" id="product-size">
+                        <option selected>Color</option>
+                        <option *ngFor="let item of size"
+                            [selected]="(item[0] + item[1] + item[2] + item[3] + item[4]) === product?.size"
+                            [value]="item[0] + item[1] + item[2] + item[3] + item[4]">{{ item.name }} ({{item[0]
+                            +
+                            item[1] + item[2] + item[3] + item[4]}})</option>
+                    </select>
+                    <select  formControlName="dimensions" class="form-control ml-1" id="product-size">
+                        <option selected>Dimensions</option>
+                        <option *ngFor="let item of size"
+                            [selected]="(item[0] + item[1] + item[2] + item[3] + item[4]) === product?.size"
+                            [value]="item[0] + item[1] + item[2] + item[3] + item[4]">{{ item.name }} ({{item[0]
+                            +
+                            item[1] + item[2] + item[3] + item[4]}})</option>
+                    </select>
+                    <input type="number" formControlName="price" class="form-control ml-1" placeholder="price">
+                    <input type="number" formControlName="quantity" class="form-control ml-1" placeholder="quantity">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-md-12">
+            <button class="btn btn-primary" (click)="onAddSKU()">Add SKU</button>
+        </div>
+    </div>
+</div>

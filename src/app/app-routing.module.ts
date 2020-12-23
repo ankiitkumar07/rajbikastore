@@ -16,6 +16,7 @@ import { ProductComponent } from './shop/product/product.component';
 import { ProductDetailComponent } from './shop/product/product-detail/product-detail.component';
 import { Cart } from './shared/model/cart';
 import { CartComponent } from './shop/cart/cart.component';
+import { ProductSkuComponent } from './admin-dashboard/product-management/product-sku/product-sku.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
           {
             path: 'show/:id',
             component: ProductShowComponent
+          },
+          {
+            path: 'edit/:id',
+            component: ProductSkuComponent
           }
         ]
       },

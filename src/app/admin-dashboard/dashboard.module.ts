@@ -9,6 +9,7 @@ import { ProductItemComponent } from './product-management/product-item/product-
 import { ProductShowComponent } from './product-management/product-show/product-show.component';
 import { ProductAddComponent } from './product-management/product-add/product-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductSkuComponent } from './product-management/product-sku/product-sku.component';
 
 
 
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserManagementComponent,
     ProductItemComponent,
     ProductShowComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProductSkuComponent
   ],
   imports: [
     CommonModule,

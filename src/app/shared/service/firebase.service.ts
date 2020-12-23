@@ -8,6 +8,7 @@ import { Product } from '../model/product.model';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../model/user';
 import { Address } from '../model/address.model';
+import { ProductSKU } from '../model/product-sku.model';
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +81,24 @@ export class FirebaseService {
     return this.db.list('products/' + id + '/images').valueChanges();
   }
 
+  addProductImages(images: string[], productId: string){
+    let productImages: string[] = [];
+    this.getProductImages(productId).subscribe((images: string[]) => {
+      productImages = images
+    });
+    for(let i=productImages.length + 1; i < productImages.length + images.length ; i++ ){
+      this.db.database.ref('products' + productId + '/images').child(""+i).set(images[i]);
+    }
+  }
+  
+  getProductSKU(productId: string){
+    return this.db.list('products/' + productId + '/sku').valueChanges()
+  }
+
+  addProductSKU(productId: string, skuId: string, sku: ProductSKU){
+    this.db.database.ref('products/' + productId + '/sku').child(skuId).set(sku)
+  }
+
   getProductSize(){
     return this.db.list('product-size').snapshotChanges().pipe(map((sizes: any[]) => sizes.map(size => ({
       name: size.key, ...size.payload.val()
@@ -92,6 +111,10 @@ export class FirebaseService {
 
   saveProduct(product: Product) {
     return this.db.database.ref('products/').child(product.id).set(product);
+  }
+
+  updateProduct(productId: string, feild: string, value: string) {
+    return this.db.database.ref('products/' + productId).child(feild).set(value);
   }
 
   getProduct(id: string): Observable<any> {

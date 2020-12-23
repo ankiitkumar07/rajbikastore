@@ -45,15 +45,24 @@
                                 <button type="button" class="btn btn-secondary">Medium (400gm)</button>
                                 <button type="button" class="btn btn-secondary">Large (700gm)</button>
                             </div> -->
-
-                            <select name="size" id="size" class="form-control mb-4">
-                                <option value="">Select Size</option>
-                                <option value="small">Small (100gm)</option>
-                                <option value="medium">Medium (400gm)</option>
-                                <option value="large">Large (700gm)</option>
-                            </select>
-
-                            <button class="btn btn-secondary">Add To Cart</button>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select name="size" (change)="getPriceForSize($event)" id="size" class="form-control mb-4">
+                                        <option disabled selected value="">Select Size</option>
+                                        <option value="small">Small (100gm)</option>
+                                        <option value="medium">Medium (400gm)</option>
+                                        <option value="large">Large (700gm)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <p id="price">
+                                        {{ productPrice }}
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn btn-secondary">Add To Cart</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
