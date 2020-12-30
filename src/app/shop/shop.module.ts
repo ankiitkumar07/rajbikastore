@@ -8,6 +8,7 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 import { ShopFilterComponent } from '../shared/component/shop-filter/shop-filter.component';
 import { UserModule } from '../user/user.module';
 import { ProductImageComponent } from './product/product-detail/product-image/product-image.component';
+import { ProductSizeSelectComponent } from '../shared/component/product-size-select/product-size-select.component';
 
 
 
@@ -19,7 +20,7 @@ import { ProductImageComponent } from './product/product-detail/product-image/pr
     ProductDetailComponent,
     ShopFilterComponent,
     ProductImageComponent,
-  
+    ProductSizeSelectComponent
   ],
   imports: [
     CommonModule,

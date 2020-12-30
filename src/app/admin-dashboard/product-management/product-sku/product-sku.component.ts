@@ -28,6 +28,7 @@ export class ProductSkuComponent implements OnInit {
 
   ngOnInit(): void {
     let productId = this.route.snapshot.params.id
+    console.log(productId)
     this._firebaseService.getProduct(productId).subscribe((product: Product) => {
       this.product = product
     })
@@ -36,7 +37,6 @@ export class ProductSkuComponent implements OnInit {
     })
     this._firebaseService.getProductSize().subscribe(sizes => {
       this.size = sizes
-      console.log(this.size)
     })
     this.productSKUForm = this.formBuilder.group({
       size: ['', Validators.required],
@@ -59,13 +59,16 @@ export class ProductSkuComponent implements OnInit {
     let prodId = this.product.id
     let sku = new ProductSKU()
     sku.size = this.f.size.value
-    console.log(sku.size)
     sku.color = this.f.color.value
     sku.dimensions = this.f.dimensions.value
     sku.price = this.f.price.value
     sku.quantity = this.f.quantity.value
     sku.id = prodId+"-"+sku.size.substring(0,1)+sku.color.substring(0,1)+sku.dimensions.substring(0,1)
-    this._firebaseService.addProductSKU(prodId, sku.id, sku)
+    this._firebaseService.addProductSKU(prodId, sku.id, sku).then(() => {
+      this.productSKUForm.reset()
+      this.formHidden = true
+    })
+    
   }
 
 }

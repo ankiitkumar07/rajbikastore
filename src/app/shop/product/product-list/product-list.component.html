@@ -13,7 +13,8 @@
         </div>
         <div class="row">
             <div class="col-6">
-                <a [routerLink]="['product/' + productItem.id]" class="btn btn-link-custom" >View Details</a>
+                <a [routerLink]="['product/' + productItem.id] + '/' + this.sku[1]?.id"
+                    class="btn btn-link-custom">View Details</a>
             </div>
             <div class="col-6">
                 <button class="btn btn-link-custom" (click)="addToChart(productItem)">Add To Cart</button>

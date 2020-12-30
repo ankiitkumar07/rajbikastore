@@ -22,5 +22,9 @@ export class ProductManagementComponent implements OnInit {
     });
   }
 
+  onClose(){
+    this.router.navigate(['admin/products'])
+  }
+
 
 }

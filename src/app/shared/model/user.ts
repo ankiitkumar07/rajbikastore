@@ -1,4 +1,5 @@
 import { Address } from './address.model';
+import { Cart } from './cart.model';
 
 export class User {
     id?: string;
@@ -7,7 +8,7 @@ export class User {
     phoneNum: number;
     photoUrl?: string;
     address?: Address;
-
+    cartItems?: Cart[]
     isAdmin: boolean = false;
     isSuperAdmin: boolean = false;
     isInvetoryManager: boolean = false;

@@ -1,0 +1,15 @@
+<select name="size" id="size" class="form-control mb-4" (change)="emitProductPrice($event)">
+    <option disabled selected value="">Select Size</option>
+    <option *ngFor="let item of sizes" [selected]="(item[0] + item[1] + item[2] + item[3] + item[4]) === product?.size"
+        [value]="item.name">{{ item.name }} ({{item[0]
+        +
+        item[1] + item[2] + item[3] + item[4]}})</option>
+</select>
+<!-- 
+<select name="size" id="size" class="form-control mb-4" (change)="getProduct($event)">
+    <option disabled selected value="">Select Size</option>
+    <option *ngFor="let item of sizes" [selected]="(item[0] + item[1] + item[2] + item[3] + item[4]) === product?.size"
+        [value]="item.name">{{ item.name }} ({{item[0]
+        +
+        item[1] + item[2] + item[3] + item[4]}})</option>
+</select> -->

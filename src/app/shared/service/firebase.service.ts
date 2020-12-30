@@ -9,6 +9,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../model/user';
 import { Address } from '../model/address.model';
 import { ProductSKU } from '../model/product-sku.model';
+import { Cart } from '../model/cart.model';
 
 @Injectable({
   providedIn: 'root'
@@ -65,6 +66,7 @@ export class FirebaseService {
     return this.db.object('users/' + uid + '/isAdmin').valueChanges();
   }
 
+  // User Address Methods 
   getAddress(uid: string): Observable<any> {
     return this.db.list('users/' + uid + '/address').valueChanges();
   }
@@ -73,6 +75,8 @@ export class FirebaseService {
     return this.db.database.ref('users/' + uid + '/address').child(address.name).set(address);
   }
 
+
+  //Products
   getProducts(): Observable<any> {
     return this.db.list('products').valueChanges();
   }
@@ -96,7 +100,7 @@ export class FirebaseService {
   }
 
   addProductSKU(productId: string, skuId: string, sku: ProductSKU){
-    this.db.database.ref('products/' + productId + '/sku').child(skuId).set(sku)
+    return this.db.database.ref('products/' + productId + '/sku').child(skuId).set(sku)
   }
 
   getProductSize(){
@@ -121,8 +125,13 @@ export class FirebaseService {
     return this.db.object('products/' + id).valueChanges();
   }
 
+  //Cart
   getCartItems(id: string) {
-    return this.db.list('cart/' + id).valueChanges();
+    return this.db.list('users/' + id + '/cartItems').valueChanges();
+  }
+
+  addToCart(userId: string, cartItem: Cart){
+    return this.db.database.ref('users/' + userId + '/cartItems').child(cartItem.id).set(cartItem)
   }
 
   //Auth Methods

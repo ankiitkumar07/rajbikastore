@@ -22,7 +22,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
-import { LoaderComponent } from './shared/component/loader/loader.component';
+// import { LoaderComponent } from './shared/component/loader/loader.component';
+// import { ProductSizeSelectComponent } from './shared/component/product-size-select/product-size-select.component';
 
 @NgModule({
   declarations: [

@@ -14,7 +14,7 @@ import { ProductShowComponent } from './admin-dashboard/product-management/produ
 import { ProductAddComponent } from './admin-dashboard/product-management/product-add/product-add.component';
 import { ProductComponent } from './shop/product/product.component';
 import { ProductDetailComponent } from './shop/product/product-detail/product-detail.component';
-import { Cart } from './shared/model/cart';
+import { Cart } from './shared/model/cart.model';
 import { CartComponent } from './shop/cart/cart.component';
 import { ProductSkuComponent } from './admin-dashboard/product-management/product-sku/product-sku.component';
 
@@ -96,6 +96,10 @@ const routes: Routes = [
       },
       {
         path: 'product/:productId',
+        component: ProductDetailComponent
+      },
+      {
+        path: 'product/:productId/:productSkuId',
         component: ProductDetailComponent
       }
     ]

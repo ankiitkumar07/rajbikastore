@@ -1,7 +1,18 @@
 <div class="container">
-    <div class="row" *ngIf="productSKU !== null">
+    <div class="row" *ngIf="productSKU === null">
         <div class="col-md-12">
             <h1>You don't have any SKU for this product</h1>
+        </div>
+    </div>
+    <div class="row" *ngIf="productSKU !== null">
+        <div class="col-md-12">
+            <div class="row" *ngFor="let item of productSKU">
+                <div class="col-3" *ngIf="item.size">{{ item.size }}</div>
+                <div class="col-3" *ngIf="item.color"> {{ item.color }} </div>
+                <div class="col-3" *ngIf="item.dimensions"> {{ item.dimensions }} </div>
+                <div class="col-2">{{ item.price }}</div>
+                <div class="col-2"> {{ item.quantity }} </div>
+            </div>
         </div>
     </div>
     <div class="row" [ngClass]="{'hidden': formHidden === true}">

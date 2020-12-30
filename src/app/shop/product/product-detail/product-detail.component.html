@@ -47,12 +47,10 @@
                             </div> -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <select name="size" (change)="getPriceForSize($event)" id="size" class="form-control mb-4">
-                                        <option disabled selected value="">Select Size</option>
-                                        <option value="small">Small (100gm)</option>
-                                        <option value="medium">Medium (400gm)</option>
-                                        <option value="large">Large (700gm)</option>
-                                    </select>
+                                    <app-product-size-select [product]="product"
+                                        [productSKUCollection]="prodSKUCollection"
+                                        (productPrice)="getPriceForSize($event)"
+                                        (skuId)="isProductAdded($event)"></app-product-size-select>
                                 </div>
                                 <div class="col-md-6">
                                     <p id="price">
@@ -60,7 +58,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-6">
-                                    <button class="btn btn-secondary">Add To Cart</button>
+                                    <button class="btn btn-secondary" (click)="onAddCart()"> {{itemAdded}} </button>
                                 </div>
                             </div>
                         </div>

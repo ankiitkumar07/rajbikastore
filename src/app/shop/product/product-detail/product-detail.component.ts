@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Cart } from 'src/app/shared/model/cart.model';
+import { ProductSKU } from 'src/app/shared/model/product-sku.model';
 import { Product } from 'src/app/shared/model/product.model';
+import { User } from 'src/app/shared/model/user';
 import { FirebaseService } from 'src/app/shared/service/firebase.service';
 
 @Component({
@@ -10,8 +13,15 @@ import { FirebaseService } from 'src/app/shared/service/firebase.service';
 })
 export class ProductDetailComponent implements OnInit { 
 
-  product: Product;
-  productPrice: number = 0.00;
+  product: Product
+  prodSKUCollection: ProductSKU[]
+  prodSKU: ProductSKU
+  productPrice: number = 0.00
+  cartItems: Cart[]
+  user: User
+  userId: string
+  productSkuId: string
+  itemAdded: string = "Add To Cart"
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,18 +30,47 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let productId = this.activatedRoute.snapshot.params.productId;
+    let productId = this.activatedRoute.snapshot.params.productId
+    this.productSkuId = this.activatedRoute.snapshot.params.productSkuId
+
+    this._firebaseService.getUser().subscribe((user) => {
+      if(user){
+        this.userId = user.uid
+        this._firebaseService.getUserDetails(user.uid).subscribe((user: User) => {
+          this.user = user
+          this.isProductAdded(this.productSkuId)
+        })
+        this._firebaseService.getCartItems(this.userId).subscribe((cartItems: Cart[]) => {
+          this.cartItems = cartItems
+        })
+      }
+    })
     this._firebaseService.getProduct(productId).subscribe((product: Product) => {
       this.product = product
-      console.log(this.product)
+    })
+    
+    this._firebaseService.getProductSKU(productId).subscribe((sku: ProductSKU[]) => {
+      this.prodSKUCollection = sku
     })
   }
 
-  getPriceForSize(event){
-    let size = event.target.value
-    if(this.product){
-      // this.productPrice = this.product.price.find(x => x === size)
-      // console.log(this.product.price.find(size))
+  getPriceForSize(productPrice: number){
+    this.productPrice = productPrice
+  }
+
+  onAddCart(){
+    let cart = new Cart()
+    cart.id = this.productSkuId
+    cart.productSKU = this.prodSKUCollection.find(x => x.id === this.productSkuId)
+    cart.quantity = 1
+    this._firebaseService.addToCart(this.userId, cart).then(this.isProductAdded)
+  }
+
+  isProductAdded(skuId: string){
+    if(this.cartItems?.find(x => x.productSKU.id === skuId)) {
+      this.itemAdded = "Go To Cart"
+    }else{
+      this.itemAdded = "Add To Cart"
     }
   }
 
