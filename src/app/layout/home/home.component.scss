@@ -1,0 +1,23 @@
+.header{
+    height: 550px;
+    background-image: url(https://www.dropbox.com/s/5oqfksn48saohea/WhatsApp%20Image%202018-05-23%20at%207.11.45%20PM.jpeg?raw=1);
+    background-position-y: -158px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-nb{
+	background-color: #dedede5e;
+	transition: all 350ms;
+	box-shadow: 2px 1px 10px #000;
+}
+
+.card-nb:hover{
+	transform: scale(1.09);
+}
+
+.card-nb>h3{
+	font-size: 200%;
+	font-weight: 300;
+	color:#f3a32e;
+}

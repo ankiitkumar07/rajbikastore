@@ -8,5 +8,6 @@ export class Address{
     phoneNumber: number;
     pinCode: number;
     postOffice: string;
-    state: string;    
+    state: string;
+    isDefault: boolean    
 }

@@ -17,12 +17,23 @@ import { ProductDetailComponent } from './shop/product/product-detail/product-de
 import { Cart } from './shared/model/cart.model';
 import { CartComponent } from './shop/cart/cart.component';
 import { ProductSkuComponent } from './admin-dashboard/product-management/product-sku/product-sku.component';
+import { ContactComponent } from './layout/contact/contact.component';
+import { AboutComponent } from './layout/about/about.component';
+import { NotFoundComponent } from './layout/not-found/not-found.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: 'admin',
@@ -103,6 +114,10 @@ const routes: Routes = [
         component: ProductDetailComponent
       }
     ]
+  },
+  {
+    path: '*',
+    component: NotFoundComponent
   }
 ];
 

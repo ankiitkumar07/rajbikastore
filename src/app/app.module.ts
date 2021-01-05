@@ -22,6 +22,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
+import { ContactComponent } from './layout/contact/contact.component';
+import { AboutComponent } from './layout/about/about.component';
+import { NotFoundComponent } from './layout/not-found/not-found.component';
 // import { LoaderComponent } from './shared/component/loader/loader.component';
 // import { ProductSizeSelectComponent } from './shared/component/product-size-select/product-size-select.component';
 
@@ -31,6 +34,9 @@ import { environment } from 'src/environments/environment';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
+    ContactComponent,
+    AboutComponent,
+    NotFoundComponent,
     // LoaderComponent
     // ShopFilterComponent
   ],

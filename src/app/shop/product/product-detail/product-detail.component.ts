@@ -61,13 +61,17 @@ export class ProductDetailComponent implements OnInit {
   onAddCart(){
     let cart = new Cart()
     cart.id = this.productSkuId
-    cart.productSKU = this.prodSKUCollection.find(x => x.id === this.productSkuId)
+    let sku = this.prodSKUCollection.find(x => x.id === this.productSkuId)
+    cart.productId = this.product.id
+    cart.skuId = sku.id
     cart.quantity = 1
+    cart.ppu = sku.price
+    cart.totalPrice = cart.quantity * cart.ppu
     this._firebaseService.addToCart(this.userId, cart).then(this.isProductAdded)
   }
 
   isProductAdded(skuId: string){
-    if(this.cartItems?.find(x => x.productSKU.id === skuId)) {
+    if(this.cartItems?.find(x => x.skuId === skuId)) {
       this.itemAdded = "Go To Cart"
     }else{
       this.itemAdded = "Add To Cart"

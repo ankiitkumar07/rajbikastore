@@ -1,18 +1,34 @@
 <div class="container">
-    <div class="row big-loader justify-content-center" *ngIf="loading">
-        <app-loader></app-loader>
+  <div class="row big-loader justify-content-center" *ngIf="loading">
+    <app-loader></app-loader>
+  </div>
+  <div class="row justify-content-center" *ngIf="cartItems.length === 0 && !loading">
+    <div class="col-12">
+      <h1 class="display-1 text-center my-4">Your cart is empty.</h1>
     </div>
-    <div class="row justify-content-center" *ngIf="cartItems.length === 0 && !loading">
+    <a [routerLink]="['/shop']" class="btn btn-primary my-4">Start Sopping</a>
+  </div>
+  <div class="row my-4 bg-white bg-shadow p-4" *ngIf="!loading">
+    <div class="col-md-12">
+      <h3 class="display-5">Delivering To: {{ selectedAddress.name }}</h3>
+    </div>
+    <div class="col-md-10">
+      <p> {{ this.selectedAddress.addressLine1 }} </p>
+      <p> {{ this.selectedAddress.addressLine2 }} </p>
+      <p> {{ this.selectedAddress.city }} </p>
+      <p> {{ this.selectedAddress.phoneNumber }} </p>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary btn-sm">Change</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row" *ngFor="let item of cartItems">
         <div class="col-12">
-            <h1 class="display-1 text-center my-4">Your cart is empty.</h1>
+         <app-cart-item [cartItem]="item"></app-cart-item>
         </div>
-        <a [routerLink]="['/shop']" class="btn btn-primary my-4">Start Sopping</a>
+      </div>
     </div>
-    <div class="row" *>
-        <div class="col-12" *ngFor="let item of cartItems">
-            <div class="card">
-                
-            </div>
-        </div>
-    </div>
+  </div>
 </div>

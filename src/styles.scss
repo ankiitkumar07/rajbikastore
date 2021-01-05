@@ -34,6 +34,13 @@ a:hover{
     color:#ccc;
     text-decoration: none;
 }
+a.link-expand {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 .body-wrap{
     position: absolute;
     top: 0;

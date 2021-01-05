@@ -3,6 +3,10 @@ import { Product } from "./product.model";
 
 export class Cart {
     id: string
-    productSKU: ProductSKU
-    quantity: number  
+    productId: string
+    skuId: string
+    ppu: number
+    quantity: number
+    totalPrice: number
+    discount: number
 }

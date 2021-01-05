@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/shared/model/product.model';
 import { FirebaseService } from 'src/app/shared/service/firebase.service';
 
@@ -11,17 +11,31 @@ import { FirebaseService } from 'src/app/shared/service/firebase.service';
 export class ProductComponent implements OnInit {
 
   productList: Product[] = [];
+  allProducts: Product[] = []
+  paramsObj : any
 
   constructor(
     private _firebaseService: FirebaseService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this._firebaseService.getProducts().subscribe((products: Product[]) => {
-      this.productList = products
-      console.log(this.productList)
+    this.route.queryParamMap.subscribe((params) => {
+      if(params){
+        this.paramsObj = { ...params.keys, ...params }
+        console.log(this.paramsObj)  
+      }
     })
+    if(this.paramsObj.params.category){
+      this._firebaseService.getProducts().subscribe((products: Product[]) => {
+        this.productList = products.filter(x => x.category === this.paramsObj.params.category)
+      })
+    }else{
+      this._firebaseService.getProducts().subscribe((products: Product[]) => {
+        this.productList = products
+      })
+    }
   }
 
 }

@@ -9,6 +9,7 @@ import { ShopFilterComponent } from '../shared/component/shop-filter/shop-filter
 import { UserModule } from '../user/user.module';
 import { ProductImageComponent } from './product/product-detail/product-image/product-image.component';
 import { ProductSizeSelectComponent } from '../shared/component/product-size-select/product-size-select.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 
 
@@ -20,7 +21,8 @@ import { ProductSizeSelectComponent } from '../shared/component/product-size-sel
     ProductDetailComponent,
     ShopFilterComponent,
     ProductImageComponent,
-    ProductSizeSelectComponent
+    ProductSizeSelectComponent,
+    CartItemComponent
   ],
   imports: [
     CommonModule,
