@@ -134,6 +134,12 @@ export class FirebaseService {
     return this.db.database.ref('users/' + userId + '/cartItems').child(cartItem.id).set(cartItem)
   }
 
+  updateCartItem(uid: string, cartItem: Cart){
+    return this.db.database.ref('users/' + uid + "/cartItems/" + cartItem.id + "/quantity").set(cartItem.quantity).then(() =>
+      this.db.database.ref('users/' + uid + "/cartItems/" + cartItem.id + "/totalPrice").set(cartItem.totalPrice)
+    )
+  }
+
   //Auth Methods
 
   getUserList(){
