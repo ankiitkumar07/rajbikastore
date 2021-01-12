@@ -41,6 +41,12 @@ a.link-expand {
     right: 0;
     bottom: 0;
 }
+
+.btn-close{
+    position: absolute;
+    right: 1px;
+    z-index: 99;
+}
 .body-wrap{
     position: absolute;
     top: 0;

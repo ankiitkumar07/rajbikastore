@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/service/alert.service';
 import { FirebaseService } from 'src/app/shared/service/firebase.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
+    private alertService: AlertService,
     private _firebaseService: FirebaseService) {
     this._firebaseService.getUser().subscribe(user => {
       if (user !== null) {
@@ -44,9 +46,12 @@ export class LoginComponent implements OnInit {
         if (user !== null) {
           this._firebaseService.isAdmin(user.uid).subscribe((isAdmin: boolean) => {
             this.router.navigate(isAdmin ? ['admin'] : ['']);
+            this.alertService.create('success', 'You have successfully logged in.')
           })
         }
       })
+    }).catch((error) => {
+      this.alertService.create('danger', 'Invalid Credentials')
     })
   }
 }

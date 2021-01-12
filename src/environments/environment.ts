@@ -13,6 +13,10 @@ export const environment = {
     messagingSenderId: "548607642026",
     appId: "1:548607642026:web:c6710511002679628103d3",
     measurementId: "G-Q4NCJRJ3H7"
+  },
+  cashfree: {
+    appId: "49064eba05488b19415b7530846094",
+    secretKey: "5b51513ef921fbc6afde1cd2a98b99e7ae478a9c"
   }
 };
 

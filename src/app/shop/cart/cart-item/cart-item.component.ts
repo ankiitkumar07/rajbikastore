@@ -13,6 +13,7 @@ export class CartItemComponent implements OnInit {
 
   @Input() cartItem: Cart
   @Output() updatedItem = new EventEmitter<Cart>()
+  @Output() deleteCartItem = new EventEmitter<string>()
   product: Product
   productSKU: ProductSKU
   productSKUCollection: ProductSKU[]
@@ -36,6 +37,10 @@ export class CartItemComponent implements OnInit {
     this.cartItem.quantity = event.target.value
     this.cartItem.totalPrice = event.target.value * this.cartItem.ppu
     this.updatedItem.emit(this.cartItem)
+  }
+
+  deleteItem(){
+    this.deleteCartItem.emit(this.cartItem.id)
   }
 
 }

@@ -140,6 +140,10 @@ export class FirebaseService {
     )
   }
 
+  deleteCartItem(uid: string, cartId: string){
+    return this.db.database.ref('users/' + uid + '/cartItems/' + cartId).remove()
+  }
+
   //Auth Methods
 
   getUserList(){

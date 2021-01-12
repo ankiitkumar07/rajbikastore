@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { sha256 } from 'js-sha256';
 import { Address } from 'src/app/shared/model/address.model';
 import { Cart } from 'src/app/shared/model/cart.model';
 import { OrderItem } from 'src/app/shared/model/order-item.model';
 import { Order } from 'src/app/shared/model/order.model';
 import { ProductSKU } from 'src/app/shared/model/product-sku.model';
 import { User } from 'src/app/shared/model/user';
+import { AlertService } from 'src/app/shared/service/alert.service';
 import { FirebaseService } from 'src/app/shared/service/firebase.service';
+import { PaymentService } from 'src/app/shared/service/payment.service';
+import { environment } from 'src/environments/environment'
 
 @Component({
   selector: 'app-cart',
@@ -26,15 +30,21 @@ export class CartComponent implements OnInit {
 
   constructor(
     private _firebaseService: FirebaseService,
+    private paymentService: PaymentService,
     private router: Router,
+    private alertService: AlertService
   ) {
     this._firebaseService.getUser().subscribe(user => {
       if (user) {
         this.uid = user.uid
+        this._firebaseService.getUserDetails(this.uid).subscribe((user: User) => {
+          this.user = user
+        })
         this._firebaseService.getCartItems(user.uid).subscribe((items: Cart[]) => {
           this.cartItems = items;
           this.getTotalOrderPrice()
           this.loading = false;
+          console.log(environment.cashfree.appId)
         });
         this._firebaseService.getAddress(user.uid).subscribe((address: Address[]) => {
           this.address = address
@@ -69,11 +79,23 @@ export class CartComponent implements OnInit {
     }
   }
 
+  deleteItem(cid: string){
+    this._firebaseService.deleteCartItem(this.uid, cid).then(() => {
+      this.alertService.create('success', 'Item removed successfully')
+    }).catch(() => {
+      this.alertService.create('danger', 'Some error occurred')
+    })
+  }
+
   onPlaceOrder(){
     let order = new Order()
     order.id = this.generateUID(16)
     order.uid = this.uid
     order.address = this.selectedAddress
+    order.orderAmount = this.totalOrderPrice
+    order.orderCurrency = 'INR'
+    order.orderNote = ""
+    order.orderTime = Date.now()
     let items: OrderItem[] = []
     for(let i = 0; i < this.cartItems.length; i++){
       let item = new OrderItem()
@@ -81,11 +103,16 @@ export class CartComponent implements OnInit {
       item.productId = this.cartItems[i].productId
       item.productSku = this.cartItems[i].skuId
       item.status = 'ordered'
-      item.expectedDelivery = 'someDeliveryDate'
+      item.expectedDelivery = Date.now() + 2
       items.push(item)
     }
     order.items = items
-    console.log(order)
+    this.paymentService.initiatePayment(order, this.user)
+    console.log(this.generateSecretKey(order))
+  }
+
+  generateSecretKey(order: Order){
+    return sha256('appId'+ environment.cashfree.appId + 'orderId' + order.id + 'orderAmount' + order.orderAmount)
   }
 
   generateUID(length: number) {

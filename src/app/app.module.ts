@@ -25,6 +25,9 @@ import { environment } from 'src/environments/environment';
 import { ContactComponent } from './layout/contact/contact.component';
 import { AboutComponent } from './layout/about/about.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
+import { LoggerComponent } from './shared/component/logger/logger.component';
+import { AlertComponent } from './shared/component/alert/alert.component';
+import { AlertService } from './shared/service/alert.service';
 // import { LoaderComponent } from './shared/component/loader/loader.component';
 // import { ProductSizeSelectComponent } from './shared/component/product-size-select/product-size-select.component';
 
@@ -37,6 +40,8 @@ import { NotFoundComponent } from './layout/not-found/not-found.component';
     ContactComponent,
     AboutComponent,
     NotFoundComponent,
+    LoggerComponent,
+    AlertComponent,
     // LoaderComponent
     // ShopFilterComponent
   ],
@@ -57,10 +62,11 @@ import { NotFoundComponent } from './layout/not-found/not-found.component';
     AngularFireAuthModule,
     AngularFireStorageModule
   ],
-  providers: [],
+  providers: [
+    AlertService
+  ],
   bootstrap: [AppComponent],
   exports: [
-    // LoaderComponent
   ]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@ import { ProductSKU } from "./product-sku.model"
 export class OrderItem {
     id: string
     deliveryTime?: Time
-    expectedDelivery?: string
+    expectedDelivery?: number
     status: string
     productId: string
     productSku: string

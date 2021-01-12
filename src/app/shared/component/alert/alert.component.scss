@@ -1,0 +1,12 @@
+.alert{
+    position: fixed;
+    margin-bottom: 0px;
+    z-index: 99;
+    box-shadow: 1px 1px 1px darkgrey;
+    top: 40rem;
+    left: 1rem;
+}
+.alert-dismissible{
+    padding-right: 3rem;
+}
+
