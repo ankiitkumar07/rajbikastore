@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { sha256 } from 'js-sha256';
 import { Subject } from 'rxjs';
@@ -46,6 +46,11 @@ export class PaymentService {
     }
 
     createPayment(order: any){
+        // let header = new HttpHeaders({
+        //     'access-control-request-headers': 'access-control-allow-origin,content-type',
+        //     'access-control-request-method': 'POST',
+
+        // })
         this.http.post(this.cashfreeTestUrl, order).subscribe(data => {
             console.log(data)
         })
