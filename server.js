@@ -1,12 +1,12 @@
 //Install express server
-const cors = require('cors')
+const cors = require('cors');
 const express = require('express');
 const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/raj-bika'));
 app.use(cors());
+app.use(express.static(__dirname + '/dist/raj-bika'));
 app.get('/*', function (req, res, next) {
 
     res.setHeader('Access-Control-Allow-Origin', 'https://test.cashfree.com/billpay/checkout/post/submit');
