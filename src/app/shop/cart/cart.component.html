@@ -13,10 +13,10 @@
       <h3 class="display-5">Delivering To: {{ selectedAddress?.name }}</h3>
     </div>
     <div class="col-md-10">
-      <p> {{ this.selectedAddress.addressLine1 }} </p>
-      <p> {{ this.selectedAddress.addressLine2 }} </p>
-      <p> {{ this.selectedAddress.city }} </p>
-      <p> {{ this.selectedAddress.phoneNumber }} </p>
+      <p> {{ selectedAddress?.addressLine1 }} </p>
+      <p> {{ selectedAddress?.addressLine2 }} </p>
+      <p> {{ selectedAddress?.city }} </p>
+      <p> {{ selectedAddress?.phoneNumber }} </p>
     </div>
     <div class="col-md-2">
       <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#choseAddressModal">Change</button>
