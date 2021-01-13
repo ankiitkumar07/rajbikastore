@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Address } from 'src/app/shared/model/address.model';
@@ -50,7 +50,11 @@ export class AddressFormComponent implements OnInit {
   getPostOffices(pin: number) {
     const indiaPostApiUrl = "https://api.postalpincode.in/pincode/";
 
-    this.http.get(indiaPostApiUrl + pin, { observe: 'response' }).subscribe(res => {
+    const headers = new HttpHeaders();
+    headers.set('Access-Control-Allow-Origin', 'allow');
+
+
+    this.http.get(indiaPostApiUrl + pin, { observe: 'response', headers: headers }).subscribe(res => {
       this.postsArray = res.body[0].PostOffice;
       this.f.city.setValue(this.postsArray[0].District);
       this.f.state.setValue(this.postsArray[0].State);
