@@ -37,12 +37,15 @@ export class PaymentService {
         this.currentOrder.set('returnUrl', 'returnUrl')
         this.currentOrder.set('notifyUrl', 'notifyUrl')
         var data = ''
-        this.currentOrder.forEach(element => {
-            data = data + element.key + element.value
+        let postOrder = {};
+        this.currentOrder.forEach((key, value) => {
+            data = data + key + value
+            postOrder[value] = key
         });
         this.currentOrder.set('signature', this.generateSecretKey(data))
-        console.log(this.currentOrder)
-        this.createPayment(this.currentOrder)
+        console.log(postOrder)
+        console.log(data)
+        this.createPayment(postOrder)
     }
 
     createPayment(order: any){
@@ -53,6 +56,9 @@ export class PaymentService {
         // })
         this.http.post(this.cashfreeTestUrl, order).subscribe(data => {
             console.log(data)
+        },
+        err => {
+            console.log(err)
         })
     }
 

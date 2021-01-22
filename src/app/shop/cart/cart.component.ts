@@ -108,11 +108,6 @@ export class CartComponent implements OnInit {
     }
     order.items = items
     this.paymentService.initiatePayment(order, this.user)
-    console.log(this.generateSecretKey(order))
-  }
-
-  generateSecretKey(order: Order){
-    return sha256('appId'+ environment.cashfree.appId + 'orderId' + order.id + 'orderAmount' + order.orderAmount)
   }
 
   generateUID(length: number) {
