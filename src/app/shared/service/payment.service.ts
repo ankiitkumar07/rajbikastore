@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { sha256 } from 'js-sha256';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Order } from '../model/order.model';
 import { Transaction } from '../model/transaction.model';
 import { User } from '../model/user';
@@ -18,7 +18,8 @@ export class PaymentService {
     cashfreeTestUrl = "https://test.cashfree.com/billpay/checkout/post/submit"
 
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        
     ){ }
 
     create(transaction: Transaction){
@@ -26,7 +27,8 @@ export class PaymentService {
     }
 
     initiatePayment(order: Order, user: User){
-        this.currentOrder.set('appId', 'alskdjf')
+        console.log(environment.cashfree.appId + " and " + environment.cashfree.secretKey)
+        this.currentOrder.set('appId', environment.cashfree.appId)
         this.currentOrder.set('orderId', order.id)
         this.currentOrder.set('orderAmount', order.orderAmount)
         this.currentOrder.set('orderCurrency', order.orderCurrency)
@@ -34,15 +36,16 @@ export class PaymentService {
         this.currentOrder.set('customerName', user.displayName)
         this.currentOrder.set('customerEmail', user.email)
         this.currentOrder.set('customerPhone', order.address.phoneNumber)
-        this.currentOrder.set('returnUrl', 'returnUrl')
-        this.currentOrder.set('notifyUrl', 'notifyUrl')
+        this.currentOrder.set('returnUrl', 'https://rajbikastore.herokuapp.com/user/cart')
+        this.currentOrder.set('notifyUrl', 'https://rajbikastore.herokuapp.com/user/cart')
         var data = ''
         let postOrder = {};
         this.currentOrder.forEach((key, value) => {
-            data = data + key + value
+            data = data + value + key
             postOrder[value] = key
         });
-        this.currentOrder.set('signature', this.generateSecretKey(data))
+        // this.currentOrder.set('signature', )
+        postOrder['signature']=this.generateSecretKey(data)
         console.log(postOrder)
         console.log(data)
         this.createPayment(postOrder)
@@ -63,7 +66,12 @@ export class PaymentService {
     }
 
     generateSecretKey(data: string){
-        return sha256(data)
+        // var hash = sha256.hmac(environment.cashfree.secretKey, data)
+        var crypto =  require('crypto-js');
+        var hash = crypto.HmacSHA256(data, environment.cashfree.secretKey)
+
+        return hash.toString(crypto.enc.Base64)
+
     }
 
 
