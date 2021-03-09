@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
         });
         this._firebaseService.getAddress(user.uid).subscribe((address: Address[]) => {
           this.address = address
-          this.selectedAddress = this.address.find(x => x.isDefault === true)
+          this.selectedAddress = this.address.find(x => x.default === true)
         })
       } else {
         this.router.navigate(['auth/login']);

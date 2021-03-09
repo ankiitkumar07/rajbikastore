@@ -125,6 +125,41 @@ a.link-expand {
     min-height: 380px;
 }
 
+.card-nb{
+    background-color: white;
+    border: 1px solid#8080808f;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 14px;
+
+    & .card-title{
+        position:absolute;
+        width: max-content;
+        top: -15%;
+        left: 26px;
+        z-index: 1;
+        background-color: transparent;
+        
+        &:before{
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            top: 37%;
+            right: 0px;
+            background-color: white;
+            z-index: -1;
+        }
+    }
+
+    & .card-body{
+        & h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+        }
+    }
+}
+
 .bg-shadow{
     box-shadow: 1px 1px 1px grey;
 }

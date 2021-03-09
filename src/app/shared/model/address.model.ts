@@ -1,5 +1,4 @@
 export class Address{
-
     name: string;
     addressLine1: string;
     addressLine2: string;
@@ -9,5 +8,5 @@ export class Address{
     pinCode: number;
     postOffice: string;
     state: string;
-    isDefault: boolean    
+    default: boolean    
 }

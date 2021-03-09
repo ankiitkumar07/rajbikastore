@@ -75,6 +75,14 @@ export class FirebaseService {
     return this.db.database.ref('users/' + uid + '/address').child(address.name).set(address);
   }
 
+  //userImageMethod
+  getUserImage(uid: string): Observable<any> {
+    return this.db.object('users/' + uid + '/photoUrl').valueChanges()
+  }
+  getUserName(uid: string): Observable<any>{
+    return this.db.object('users/' + uid + '/displayName').valueChanges()
+  }
+
 
   //Products
   getProducts(): Observable<any> {

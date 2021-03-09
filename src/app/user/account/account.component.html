@@ -1,8 +1,15 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12">            
             <div class="jumbotron">
-                <h1 class="display-3">Hello User!</h1>
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                        <img *ngIf="userPhotoUrl != null" [src]="userPhotoUrl" [alt]="userDisplayName + '\'s display pictures'" class="img-thumbnail round">
+                    </div>
+                    <div class="col-8">
+                        <h5 *ngIf="userDisplayName != null" class="display-3">Hello {{userDisplayName}}!</h5>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

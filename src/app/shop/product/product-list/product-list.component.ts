@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { toArray } from 'rxjs/operators';
 import { ProductSKU } from 'src/app/shared/model/product-sku.model';
 import { Product } from 'src/app/shared/model/product.model';
@@ -16,19 +17,22 @@ export class ProductListComponent implements OnInit {
   sku: ProductSKU[] = []
 
   constructor(
-    private _firebaseService: FirebaseService
+    private _firebaseService: FirebaseService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this._firebaseService.getProductSKU(this.productItem.id).subscribe((sku: ProductSKU[]) => {
       this.sku = sku
-
       console.log(this.sku[1])
     })
   }
 
-  addToChart(product: Product) {
+  addToCart(product: Product) {
     
+  }
+  viewItem(product: Product){
+    this.router.navigate(['shop/product/' + product.id + '/' + this.sku[1]?.id])
   }
 
 }
