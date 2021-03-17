@@ -11,28 +11,28 @@
           <div class="top"></div>
           <div class="left"></div>
           <div class="right"></div>
-          <a class="nav-link" [routerLink]="['/']">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link c-white" [routerLink]="['/']">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
             <div class="bottom"></div>
           <div class="top"></div>
           <div class="left"></div>
           <div class="right"></div>
-          <a class="nav-link" [routerLink]="['/about']">About</a>
+          <a class="nav-link c-white" [routerLink]="['/about']">About</a>
         </li>
         <li class="nav-item">
             <div class="bottom"></div>
           <div class="top"></div>
           <div class="left"></div>
           <div class="right"></div>
-          <a class="nav-link" [routerLink]="['/contact']">Contact</a>
+          <a class="nav-link c-white" [routerLink]="['/contact']">Contact</a>
         </li>
         <li class="nav-item">
             <div class="bottom"></div>
           <div class="top"></div>
           <div class="left"></div>
           <div class="right"></div>
-          <a class="nav-link" [routerLink]="['shop']">Products</a>
+          <a class="nav-link c-white" [routerLink]="['shop']">Products</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto" *ngIf="this.isLoggedIn">
@@ -41,7 +41,7 @@
               <div class="top"></div>
               <div class="left"></div>
               <div class="right"></div> -->
-              <a class="nav-link dropdown-toggle user-menu" data-toggle="dropdown">
+              <a class="nav-link c-white dropdown-toggle user-menu" data-toggle="dropdown">
                 <app-loader *ngIf="loading"></app-loader>
                 {{ name === null ? email : name}}
               </a>

@@ -2,19 +2,23 @@
     <a class="link-expand" (click)="viewItem(productItem)"></a>
     <img class="card-img-top" [src]="productItem.imgURL" alt="image for productItem.name">
     <div class="card-body">
-        <div class="row">
+        <div class="row bb-1">
             <div class="col-12">
-                <h5 (click)="viewItem(productItem)" class="card-title">{{productItem.name | slice: 0:15}}...</h5>
+                <h5 (click)="viewItem(productItem)" class="card-title">{{productItem.name}}</h5>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <p class="card-text">{{ productItem.description | slice: 0:50 }}...</p>
+        <div class="row mb-3">
+            <div class="col-8">
+                <p class="card-text">{{ productItem.description | slice: 0:70 }}...</p>
+            </div>
+            <div class="col-4">
+                <h6>{{sku[0]?.price}}</h6>
+                <span>{{sku[0]?.size}}</span>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6">
-                <select class="form-select">
+        <div class="row expand bg-primary">
+            <div class="col-6 br-1">
+                <select class="select-ep" #quantity>
                     <option value="1" selected>1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -23,7 +27,7 @@
                 </select>
             </div>
             <div class="col-6">
-                <button class="btn btn-link-custom" (click)="addToCart(productItem)">Add To Cart</button>
+                <button class="btn btn-link-custom c-white" (click)="addToCart(productItem, sku, quantity)">Add To Cart</button>
             </div>
         </div>
     </div>
