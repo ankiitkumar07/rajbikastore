@@ -1,0 +1,41 @@
+@media only screen and (max-width: 426px){
+    .new-header{
+        & img.img-ele{
+            display: none !important;
+        }
+        & #img-turban-saafa, #img-handlebar{
+            width: 130px !important;
+        }
+        & h1{
+            font-size: 5rem !important;
+            letter-spacing: 10px !important;
+        }
+        & h4{
+            font-size: 1rem !important;
+            letter-spacing: 2px !important;
+        }
+        & .row{
+            padding: 1rem 0;
+        }
+
+    }
+}
+
+@media only screen and (max-width: 769px){
+    // .new-header{
+    //     & img.img-ele{
+    //         width: 210px;
+    //     }
+    //     & #img-turban-saafa, #img-handlebar{
+    //         width: 130px !important;
+    //     }
+    //     & h1{
+    //         font-size: 5rem !important;
+    //         letter-spacing: 10px !important;
+    //     }
+    //     & h4{
+    //         font-size: 1rem !important;
+    //         letter-spacing: 2px !important;
+    //     }
+    // }
+}

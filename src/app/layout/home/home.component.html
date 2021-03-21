@@ -1,111 +1,214 @@
-<div class="header">
-		
+<div class="full-loader" *ngIf="loading">
+	<div class="main-loader">
+		<div class="dots red resonate-l"></div>
+		<div class="dots blue mx-0"></div>
+		<div class="dots green mx-0"></div>
+		<div class="dots yellow  mx-0"></div>
+		<div class="dots orange resonate-r"></div>
+	</div>
 </div>
 
-<!-- links to site -->
-	<div class="container mb-4">
-		<h1 class="display-3 text-center">Important Links</h1>
-		<div class="row">
-			<div class="col-sm-1 col-md-3 col-lg-3 d-flex align-items-stretch">
-				<div class="card-nb px-4 my-card">
-					<div class="image-nb">
-						<img src="https://www.dropbox.com/s/8mb2zixbsudhung/products.JPG?raw=1" alt="basic image">
+<div class="header-wrapper pt-5">
+	<div class="new-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="d-flex justify-content-center col-md-3" [@scrollAnimationLeft]="state">
+					<img src="https://www.dropbox.com/s/ghipzmeeazpq4bn/Asset%205.png?raw=1" alt="header-image"
+						class="img-fluid img-ele">
+				</div>
+				<div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center"
+					[@scrollAnimationFade]="state">
+					<div class="row">
+						<div class="col-12">
+							<img src="https://www.dropbox.com/s/j5xk0jvtxos4u65/Asset%203.png?raw=1"
+								alt="header-image-saafa" id="img-turban-saafa">
+						</div>
 					</div>
-					<div class="matter">
-						<h4 class="text-center">Our Products</h4>
-						<p class="text-center">
-							We deal in various kinds of <i>Papad</i>. All these <i>Papad</i> are made by us at home like environment. 
-						</p>
-						<a [routerLink]="['shop']" class="btn btn-sm my-link link-nb">Explore Products</a>
+					<div class="row">
+						<div class="col-12">
+							<h1>RajBika</h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<img src="https://www.dropbox.com/s/1dghczfl5xcizjz/handlebar-moustache-cropped.png?raw=1"
+								alt="header-image-saafa" id="img-handlebar">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<h4>All the way from Bikaner, Rajasthan!</h4>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-1 col-md-3 col-lg-3 d-flex align-items-stretch">
-				<div class="card-nb px-4 my-card">
-					<div class="image-nb">
-						<img src="https://www.dropbox.com/s/p2vdpl1pa0gss08/about.JPG?raw=1" alt="basic image">
-					</div>
-					<div class="matter">
-						<h4 class="text-center">Know About Us</h4>
-						<p class="text-center">
-							We are based in Bikaner. The business is run by family.
-						</p>
-						<a [routerLink]="['about']" class="btn btn-sm my-link link-nb">Know More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-1 col-md-3 col-lg-3 d-flex align-items-stretch">
-				<div class="card-nb px-4 my-card">
-					<div class="image-nb">
-						<img src="https://www.dropbox.com/s/pzn8utu7gvvnhei/contact.JPG?raw=1" alt="basic image">
-					</div>
-					<div class="matter">
-						<h4 class="text-center">Contact Us</h4>
-						<p class="text-center">
-							It is very easy to contact us. You can call us, mail us, or even visit our office.
-						</p>
-						<a [routerLink]="['contact']" class="btn btn-sm my-link link-nb">Know More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-1 col-md-3 col-lg-3 d-flex align-items-stretch">
-				<div class="card-nb px-4 my-card">
-					<div class="image-nb">
-						<img src="https://www.dropbox.com/s/9l6o4pabuprpndy/pricing.JPG?raw=1" alt="basic image">
-					</div>
-					<div class="matter">
-						<h4 class="text-center">Pricing</h4>
-						<p class="text-center">
-							We are totaly pocket friendly. And also great in taste.
-						</p>
-						<a [routerLink]="['shop']" class="btn btn-sm my-link link-nb">Know More</a>
-					</div>
+				<div class="d-flex justify-content-center col-md-3" [@scrollAnimationRight]="state">
+					<img src="https://www.dropbox.com/s/v0bjh3nezw1fwge/Asset%206.png?raw=1" alt="header-image"
+						class="img-fluid img-ele">
 				</div>
 			</div>
 		</div>
 	</div>
-
-<div class="container my-4">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="text-center display-4">Categories</h1>
-        </div>
-    </div>
-    <div class="row">
-        <ng-container *ngFor="let category of categories">
-            <div class="col-sm my-4 d-flex" *ngFor="let item of category.data | keyvalue">
-                <div class="card-nb px-4">
-                    <div class="card-body">
-                        <a [routerLink]="['shop']" [queryParams]="{ category: item.value }" class="link-expand"></a>
-                        <p class="card-text text-center">
-                            {{ item.value }}
-                            <ng-container *ngIf="item.value.length > 20"> {{ '...' }} </ng-container>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </ng-container>
-    </div>
 </div>
 
+
+<div class="container-fluid bg-white" id="first-section">
+	<div class="row py-4">
+		<div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+			<h1>We Serve the best Papad</h1>
+			<p>I need some description sort of thing to write here.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, natus ea voluptates dignissimos
+				maiores ipsam excepturi repudiandae laboriosam asperiores eaque similique distinctio labore iure soluta,
+				nostrum cum magnam tempora commodi.</p>
+			<button class="btn btn-link bg-primary">Explore Products</button>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<img src="https://www.dropbox.com/s/bz1iya45s00vhjd/roasted-papad-500x500.jpg?raw=1" class="img-fluid"
+				alt="papad-image-1">
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid bg-white">
+	<div class="row py-4">
+		<div class="col-md-6 col-sm-12 order-md-2 d-flex flex-column justify-content-center align-items-center">
+			<h1>We have India's best Mukhwas and Khatas</h1>
+			<p>I need some description sort of thing to write here.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, natus ea voluptates dignissimos
+				maiores ipsam excepturi repudiandae laboriosam asperiores eaque similique distinctio labore iure soluta,
+				nostrum cum magnam tempora commodi.</p>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<img src="https://www.dropbox.com/s/4okywt2xs5cjrgb/avtar-ayurvedic-pharmacy-mukhwas-ingredient-chili-con-carne-pomegranate-others-122265acd59d874fc79de68d593ef110.png?raw=1"
+				alt="papad-image-1" class="img-fluid">
+		</div>
+	</div>
+</div>
+<div class="container-fluid bg-white">
+	<div class="row py-4">
+		<div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+			<h1>We Serve the best Papad</h1>
+			<p>I need some description sort of thing to write here.</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, natus ea voluptates dignissimos
+				maiores ipsam excepturi repudiandae laboriosam asperiores eaque similique distinctio labore iure soluta,
+				nostrum cum magnam tempora commodi.</p>
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<img src="https://www.dropbox.com/s/bz1iya45s00vhjd/roasted-papad-500x500.jpg?raw=1" class="img-fluid"
+				alt="papad-image-1">
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<!-- links to site -->
+<div class="container mb-4">
+	<h1 class="display-3 text-center">Important Links</h1>
+	<div class="row">
+		<div class="col-sm-1 col-md-3 col-lg-3 d-flex align-items-stretch">
+			<div class="card-nb px-4 my-card">
+				<div class="image-nb">
+					<img src="https://www.dropbox.com/s/8mb2zixbsudhung/products.JPG?raw=1" alt="basic image">
+				</div>
+				<div class="matter">
+					<h4 class="text-center">Our Products</h4>
+					<p class="text-center">
+						We deal in various kinds of <i>Papad</i>. All these <i>Papad</i> are made by us at home like
+						environment.
+					</p>
+					<a [routerLink]="['shop']" class="btn btn-sm my-link link-nb">Explore Products</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-1 col-md-3 col-lg-3 d-flex align-items-stretch">
+			<div class="card-nb px-4 my-card">
+				<div class="image-nb">
+					<img src="https://www.dropbox.com/s/p2vdpl1pa0gss08/about.JPG?raw=1" alt="basic image">
+				</div>
+				<div class="matter">
+					<h4 class="text-center">Know About Us</h4>
+					<p class="text-center">
+						We are based in Bikaner. The business is run by family.
+					</p>
+					<a [routerLink]="['about']" class="btn btn-sm my-link link-nb">Know More</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-1 col-md-3 col-lg-3 d-flex align-items-stretch">
+			<div class="card-nb px-4 my-card">
+				<div class="image-nb">
+					<img src="https://www.dropbox.com/s/pzn8utu7gvvnhei/contact.JPG?raw=1" alt="basic image">
+				</div>
+				<div class="matter">
+					<h4 class="text-center">Contact Us</h4>
+					<p class="text-center">
+						It is very easy to contact us. You can call us, mail us, or even visit our office.
+					</p>
+					<a [routerLink]="['contact']" class="btn btn-sm my-link link-nb">Know More</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-1 col-md-3 col-lg-3 d-flex align-items-stretch">
+			<div class="card-nb px-4 my-card">
+				<div class="image-nb">
+					<img src="https://www.dropbox.com/s/9l6o4pabuprpndy/pricing.JPG?raw=1" alt="basic image">
+				</div>
+				<div class="matter">
+					<h4 class="text-center">Pricing</h4>
+					<p class="text-center">
+						We are totaly pocket friendly. And also great in taste.
+					</p>
+					<a [routerLink]="['shop']" class="btn btn-sm my-link link-nb">Know More</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="container my-4">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="text-center display-4">Categories</h1>
+		</div>
+	</div>
+	<div class="row">
+		<ng-container *ngFor="let category of categories">
+			<div class="col-sm my-4 d-flex" *ngFor="let item of category.data | keyvalue">
+				<div class="card-nb px-4">
+					<div class="card-body">
+						<a [routerLink]="['shop']" [queryParams]="{ category: item.value }" class="link-expand"></a>
+						<p class="card-text text-center">
+							{{ item.value }}
+							<ng-container *ngIf="item.value.length > 20"> {{ '...' }} </ng-container>
+						</p>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+	</div>
+</div> -->
+
 <div class="container my-4">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="display-4 text-center">Top Products</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm d-flex" *ngFor="let product of products | slice: 0:4">
-            <div class="card">
-                <a class="link-expand" [routerLink]="['shop/product/' + product.id]"></a>
-                <img [src]="product.imgURL" alt="" class="card-img">
-                <div class="card-body">
-                    <h4 class="display-6">
-                        {{ product.name }}
-                    </h4>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="display-4 text-center">Top Products</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm d-flex" *ngFor="let product of products | slice: 0:4">
+			<div class="card">
+				<a class="link-expand" [routerLink]="['shop/product/' + product.id]"></a>
+				<img [src]="product.imgURL" alt="" class="card-img">
+				<div class="card-body">
+					<h4 class="display-6">
+						{{ product.name }}
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </div>

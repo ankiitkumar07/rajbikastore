@@ -1,11 +1,90 @@
-.header{
-    height: 550px;
-    background-image: url(https://www.dropbox.com/s/5oqfksn48saohea/WhatsApp%20Image%202018-05-23%20at%207.11.45%20PM.jpeg?raw=1);
-    background-position-y: -158px;
-    background-repeat: no-repeat;
-    background-size: cover;
+@import '../../../global-style-settings.scss';
+
+.header-wrapper{
+	position: relative;
+	height: 100vh;
+}
+h1, h4{
+	font-family: var(--candy-script);
+}
+.full-loader{
+	position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    height: 100vh;
+	& .main-loader{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		& .dots{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			border-radius: 100%;
+		}
+		& .red{
+			background-color: red;
+			animation-delay: 0ms;
+		}
+		& .blue{
+			background-color: blue;
+			animation-delay: 200ms;
+		}
+		& .green{
+			background-color: darkgreen;
+			animation-delay: 400ms;
+		}
+		& .yellow{
+			background-color: yellow;
+			animation-delay: 600ms;
+		}
+		& .orange{
+			background-color: orange;
+			animation-delay: 800ms;
+		}
+		& .orange.resonate-r{
+			animation-delay: 0ms;
+		}
+
+		& .resonate-l{
+			animation: linear resonate-l 1600ms normal infinite;
+		}
+		& .resonate-r{
+			animation: linear resonate-r 1600ms normal infinite;
+		}
+
+	}
 }
 
+
+.new-header{
+	position: fixed;
+	left: 0;
+    top: auto;
+    right: 0;
+    bottom: auto;
+	z-index: -99;
+	& img.img-55{
+		width: 500px;
+		height: 600px;
+	}
+	& #img-turban-saafa, #img-handlebar{
+		width: 230px;
+	}
+	& h1{
+		font-size: 8rem;
+		letter-spacing: 15px;
+		@include text-gradient-bg;
+	}
+	& h4{
+		font-size: 1.7rem;
+		letter-spacing: 4px;
+		@include text-gradient-bg
+	}
+}
 .card-nb{
 	background-color: #dedede5e;
 	transition: all 350ms;
@@ -20,4 +99,34 @@
 	font-size: 200%;
 	font-weight: 300;
 	color:#f3a32e;
+}
+
+
+@keyframes resonate-l{
+	0%{
+		transform: translateX(0px);
+	}
+	25%{
+		transform: translateX(-18px);
+	}
+	50%{
+		transform: translateX(0px);
+	}
+	100%{
+		transform: translateX(0px);
+	}
+}
+@keyframes resonate-r{
+	0%{
+		transform: translateX(0px);
+	}
+	50%{
+		transform: translateX(0px);
+	}
+	75%{
+		transform: translateX(18px);	
+	}
+	100%{
+		transform: translateX(0px);
+	}
 }

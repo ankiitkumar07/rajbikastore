@@ -1,9 +1,12 @@
+@import '../../../../global-style-settings.scss';
+
 .nav-scrolled{
     background-color: #fff !important;
 }
 .navbar-brand{
-	font-size: 2.25rem;
-    font-family:AR DELANEY;;
+	font-size: 1.75rem;
+    font-family: var(--candy-script);
+    @include text-gradient-bg;
 }
 .navbar-nav{
     margin-bottom: -14px;
