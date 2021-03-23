@@ -5,8 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand&display=swap');
 
 :root {
-    --bg-primary: #5eaaa8;
+    --bg-primary: #7851a9;
     --bg-gold: #FFD700;
+    --bg-secondary: #E5E4E2;
     --bg-accent: #b9b8b863;
     --nav-height: 70px;
     --candy-script: 'Candy Script';
@@ -59,6 +60,9 @@ p{
     &:focus{
         box-shadow: 0 0 0 0.1rem var(--bg-accent);
     }
+}
+.border-none{
+    border: none;
 }
 .select-ep{
     width: 100%;

@@ -10,6 +10,8 @@ import { UserModule } from '../user/user.module';
 import { ProductImageComponent } from './product/product-detail/product-image/product-image.component';
 import { ProductSizeSelectComponent } from '../shared/component/product-size-select/product-size-select.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { ProductReviewComponent } from './product-review/product-review.component';
+import { CreateReviewComponent } from './product-review/create-review/create-review.component';
 
 
 
@@ -22,7 +24,9 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
     ShopFilterComponent,
     ProductImageComponent,
     ProductSizeSelectComponent,
-    CartItemComponent
+    CartItemComponent,
+    ProductReviewComponent,
+    CreateReviewComponent
   ],
   imports: [
     CommonModule,
