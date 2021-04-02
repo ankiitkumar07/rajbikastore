@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/shared/model/product.model';
 import { FirebaseService } from 'src/app/shared/service/firebase.service';
+import  GenerateId  from 'src/app/shared/util/generate-id.util';
 
 @Component({
   selector: 'app-product-add',
@@ -47,7 +48,7 @@ export class ProductAddComponent implements OnInit {
   submitProduct(){
   	this.product = new Product();
   	this.product = this.productForm.getRawValue();
-  	this.product.id = this.getId(8);
+  	this.product.id = GenerateId.getUniqueId(8);
   	this.product.metatitle = this.f.name.value;
   	this._firebaseService.saveProduct(this.product).then(res => {
       console.log('product saved');
@@ -55,14 +56,14 @@ export class ProductAddComponent implements OnInit {
   	});
   }
 
-  getId(length: number): string{
-    var result = '';
-    var char =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = char.length;
-      for ( var i = 0; i < length; i++ ) {
-        result += char.charAt(Math.floor(Math.random() * charactersLength));
-      }
-    return result;
-  }
+  // getId(length: number): string{
+  //   var result = '';
+  //   var char =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  //   var charactersLength = char.length;
+  //     for ( var i = 0; i < length; i++ ) {
+  //       result += char.charAt(Math.floor(Math.random() * charactersLength));
+  //     }
+  //   return result;
+  // }
 
 }

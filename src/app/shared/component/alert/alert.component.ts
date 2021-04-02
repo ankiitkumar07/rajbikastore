@@ -22,6 +22,9 @@ export class AlertComponent implements OnInit {
         this.type = data.type
         this.msg = data.msg
         this.show = true
+        setTimeout( _ => {
+          this.show = false
+        }, 2000)
       }
     )
   }

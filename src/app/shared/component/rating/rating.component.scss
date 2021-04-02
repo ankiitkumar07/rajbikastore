@@ -1,0 +1,15 @@
+ul{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    font-size: 18px;
+    & li{
+        margin: 4px;
+        &.selected > i{
+            color: black;
+        }
+        &.hovered > i{
+            color: grey;
+        }
+    }
+}

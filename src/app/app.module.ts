@@ -29,8 +29,6 @@ import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { LoggerComponent } from './shared/component/logger/logger.component';
 import { AlertComponent } from './shared/component/alert/alert.component';
 import { AlertService } from './shared/service/alert.service';
-// import { LoaderComponent } from './shared/component/loader/loader.component';
-// import { ProductSizeSelectComponent } from './shared/component/product-size-select/product-size-select.component';
 
 @NgModule({
   declarations: [
@@ -42,9 +40,7 @@ import { AlertService } from './shared/service/alert.service';
     AboutComponent,
     NotFoundComponent,
     LoggerComponent,
-    AlertComponent,
-    // LoaderComponent
-    // ShopFilterComponent
+    AlertComponent
   ],
   imports: [
     BrowserModule,

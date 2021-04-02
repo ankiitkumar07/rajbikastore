@@ -10,3 +10,11 @@
     padding-right: 3rem;
 }
 
+@media (max-width: 992px) {
+    .alert{
+        top: 90%;
+        left: 20%;
+        transform: translateX(-10%);
+    }
+}
+

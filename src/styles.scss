@@ -5,184 +5,231 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand&display=swap');
 
 :root {
-    --bg-primary: #7851a9;
-    --bg-gold: #FFD700;
+    --bg-primary  : #7851a9;
+    --bg-gold     : #FFD700;
     --bg-secondary: #E5E4E2;
-    --bg-accent: #b9b8b863;
-    --nav-height: 70px;
+    --bg-accent   : #b9b8b863;
+    --nav-height  : 70px;
     --candy-script: 'Candy Script';
 }
 
 
 
-@font-face{
+@font-face {
     font-family: 'Candy Script';
-    src: url('./assets/Candy\ Script.ttf');
+    src        : url('./assets/Candy\ Script.ttf');
 }
 
-html{
-	position: relative;
-	min-height: 100%;
+html {
+    position  : relative;
+    min-height: 100%;
 }
 
-body{
-	background: url(https://www.dropbox.com/s/06zwbx5cmxvqire/WhatsApp%20Image%202021-03-19%20at%2012.09.59%20AM.jpeg?raw=1);
-	/*margin-bottom: 60px;*/
-	padding-top: var(--nav-height);
-    font-weight: 300;
+body {
+    background     : url(https://www.dropbox.com/s/06zwbx5cmxvqire/WhatsApp%20Image%202021-03-19%20at%2012.09.59%20AM.jpeg?raw=1);
+    /*margin-bottom: 60px;*/
+    padding-top    : var(--nav-height);
+    font-weight    : 300;
 }
-.row{
-    &.expand{
-        margin-right: -21px;
-        margin-left: -21px;
-        margin-bottom: -2px;    
+
+.row {
+    &.expand {
+        margin-right : -21px;
+        margin-left  : -21px;
+        margin-bottom: -2px;
     }
-    &.bb-1{
+
+    &.bb-1 {
         border-bottom: 1px solid #80808070;
         margin-bottom: 1rem;
     }
-    
+
 }
-h1,h2,h3,h4,h5,h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--candy-script), sans-serif;
 }
-p{
-	font-family: 'Quicksand', sans-serif;
-	font-weight: 300;
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
 }
-.c-white{
+
+.c-white {
     color: white !important;
 }
-.br-1{
+
+.br-1 {
     border-right: 1px solid var(--bg-accent);
 }
-.btn{
-    &:focus{
+
+.btn {
+    &:focus {
         box-shadow: 0 0 0 0.1rem var(--bg-accent);
     }
 }
-.border-none{
+
+.btn-primary,
+.btn-primary.disabled,
+.btn-primary:disabled,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: var(--bg-primary);
+    color           : var(--bg-gold);
+    border-color    : var(--bg-primary);
+}
+
+.border-none {
     border: none;
 }
-.select-ep{
-    width: 100%;
-    height: 100%;
+
+.select-ep {
+    width           : 100%;
+    height          : 100%;
     background-color: var(--bg-primary);
-    font-size: 15px;
-    border: none;
-    color: white;
-    &:focus{
+    font-size       : 15px;
+    border          : none;
+    color           : white;
+
+    &:focus {
         outline: 0;
     }
 }
-p,a,li, select{
+
+p,
+a,
+li,
+select {
     font-family: 'Montserrat', sans-serif;
 }
 
-h3{
+h3 {
     font-weight: 400;
 }
-a{
+
+a {
     // color: white;
     text-decoration: none;
-    &:hover{
-        color:#ccc;
+
+    &:hover {
+        color          : #ccc;
         text-decoration: none;
     }
+
     &.link-expand {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        top     : 0;
+        left    : 0;
+        right   : 0;
+        bottom  : 0;
     }
 }
 
-.btn-close{
+.btn-close {
     position: absolute;
-    right: 1px;
-    z-index: 99;
-}
-.body-wrap{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: var(--bg-accent);
-    z-index: -1;
-}
-.bg-accent{
-	background-color: var(--bg-accent)!important;
-}
-.bg-primary{
-    background-color: var(--bg-primary) !important;
-}
-.bg-white{
-    background-color: white;
-}
-.bg-rajbika-app{
-    background-image: url(https://www.dropbox.com/s/ejy85licumfqenu/site-background.jpg?raw=1);
-    background-position: center;
-    background-size: cover;
+    right   : 1px;
+    z-index : 99;
 }
 
-.last{
+.body-wrap {
+    position        : absolute;
+    top             : 0;
+    left            : 0;
+    bottom          : 0;
+    right           : 0;
+    background-color: var(--bg-accent);
+    z-index         : -1;
+}
+
+.bg-accent {
+    background-color: var(--bg-accent) !important;
+}
+
+.bg-primary {
+    background-color: var(--bg-primary) !important;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-rajbika-app {
+    background-image   : url(https://www.dropbox.com/s/ejy85licumfqenu/site-background.jpg?raw=1);
+    background-position: center;
+    background-size    : cover;
+}
+
+.last {
     margin-bottom: 100px;
 }
 
-.my-card{
-    display: grid;
-    position: relative;
+.my-card {
+    display   : grid;
+    position  : relative;
     min-height: 380px;
 }
 
-.card-nb{
+.card-nb {
     background-color: white;
-    border: 1px solid#8080808f;
-    border-radius: 5px;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 14px;
+    border          : 1px solid#8080808f;
+    border-radius   : 5px;
+    position        : relative;
+    z-index         : 2;
+    margin-bottom   : 14px;
 
-    & .card-title{
-        position:absolute;
-        width: max-content;
-        top: -15%;
-        left: 26px;
-        z-index: 1;
+    & .card-title {
+        position        : absolute;
+        width           : max-content;
+        top             : -15%;
+        left            : 26px;
+        z-index         : 1;
         background-color: transparent;
-        
-        &:before{
-            content: '';
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
-            top: 37%;
-            right: 0px;
+
+        &:before {
+            content         : '';
+            position        : absolute;
+            bottom          : 0px;
+            left            : 0px;
+            top             : 37%;
+            right           : 0px;
             background-color: white;
-            z-index: -1;
+            z-index         : -1;
         }
     }
 
-    & .card-body{
-        & h1, h2, h3, h4, h5, h6 {
+    & .card-body {
+
+        & h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             margin: 0;
         }
     }
 }
 
-.bg-shadow{
+.bg-shadow {
     box-shadow: 1px 1px 1px grey;
 }
-.my-link{
+
+.my-link {
     position: absolute;
-    bottom: 5%;
-    left: 20%;
-    right: 20%;
+    bottom  : 5%;
+    left    : 20%;
+    right   : 20%;
 }
+
 .big-loader {
-    min-height: 340px;
+    min-height : 340px;
     align-items: center;
 }
 

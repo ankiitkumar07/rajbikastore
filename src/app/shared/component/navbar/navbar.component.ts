@@ -53,4 +53,10 @@ export class NavbarComponent implements OnInit {
   	});
   }
 
+
+  toggleSideNav(){
+    let navCollapse = document.getElementById("navbarSupportedContent")
+    navCollapse.classList.toggle('collapse')
+  }
+
 }

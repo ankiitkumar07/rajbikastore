@@ -1,66 +1,71 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-primary">
-    <a class="navbar-brand" href="/">Raj Bika</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <a class="navbar-brand" href="/">Raj Bika</a>
+  <button class="navbar-toggler" type="button" (click)="toggleSideNav()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <div class="bottom"></div>
-          <div class="top"></div>
-          <div class="left"></div>
-          <div class="right"></div>
-          <a class="nav-link c-white" [routerLink]="['/']">Home<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <div class="bottom"></div>
-          <div class="top"></div>
-          <div class="left"></div>
-          <div class="right"></div>
-          <a class="nav-link c-white" [routerLink]="['/about']">About</a>
-        </li>
-        <li class="nav-item">
-            <div class="bottom"></div>
-          <div class="top"></div>
-          <div class="left"></div>
-          <div class="right"></div>
-          <a class="nav-link c-white" [routerLink]="['/contact']">Contact</a>
-        </li>
-        <li class="nav-item">
-            <div class="bottom"></div>
-          <div class="top"></div>
-          <div class="left"></div>
-          <div class="right"></div>
-          <a class="nav-link c-white" [routerLink]="['shop']">Products</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto" *ngIf="this.isLoggedIn">
-          <li class="nav-item dropdown">
-              <!-- <div class="bottom"></div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <div class="bottom"></div>
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <a class="nav-link c-white" [routerLink]="['']">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <div class="bottom"></div>
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <a class="nav-link c-white" [routerLink]="['about']">About</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <div class="bottom"></div>
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <a class="nav-link c-white" [routerLink]="['contact']">Contact</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <div class="bottom"></div>
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <a class="nav-link c-white" [routerLink]="['shop']">Products</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" id="loggedInUserMenu" *ngIf="this.isLoggedIn">
+      <li class="nav-item dropdown">
+        <!-- <div class="bottom"></div>
               <div class="top"></div>
               <div class="left"></div>
               <div class="right"></div> -->
-              <a class="nav-link c-white dropdown-toggle user-menu" data-toggle="dropdown">
-                <app-loader *ngIf="loading"></app-loader>
-                {{ name === null ? email : name}}
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <!-- User Nav Links -->
-                  <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/profile']">Profile</a></li>
-                  <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/address']">Addresses</a></li>
-                  <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/cart']">Cart</a></li>
-                  <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/wishlist']">Wishlist</a></li>
-                  <!-- Admin Nav Links -->
-                  <li class="dropdown-item" *ngIf="this.isAdmin"><a href="" class="btn btn-primary" [routerLink]="['admin']">Admin Dashboard</a></li>
-                  <div class="dropdown-divider"></div>
-                  <li class="dropdown-item" ><a class="btn bnt-primary" (click)="signout()">Logout</a></li>
-              </div>
-          </li>
-      </ul>
-      <ul class="navbar-nav ml-auto" *ngIf="!this.isLoggedIn">
-          <li class="nav-item"><a class="btn bnt-primary" [routerLink]="['auth/login']">LogIn</a></li>
-          <li class="nav-item"><a class="btn bnt-primary" [routerLink]="['auth/register']">SignUp</a></li>
-      </ul>
-    </div>
-  </nav>
+        <a class="nav-link c-white dropdown-toggle user-menu" data-toggle="dropdown">
+          <app-loader *ngIf="loading"></app-loader>
+          {{ name === null ? email : name}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!-- User Nav Links -->
+      <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary"
+          [routerLink]="['user/profile']">Profile</a></li>
+      <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary"
+          [routerLink]="['user/address']">Addresses</a></li>
+      <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary" [routerLink]="['user/cart']">Cart</a>
+      </li>
+      <li class="dropdown-item" *ngIf="!this.isAdmin"><a class="btn bnt-primary"
+          [routerLink]="['user/wishlist']">Wishlist</a></li>
+      <!-- Admin Nav Links -->
+      <li class="dropdown-item" *ngIf="this.isAdmin"><a href="" class="btn btn-primary" [routerLink]="['admin']">Admin
+          Dashboard</a></li>
+      <div class="dropdown-divider"></div>
+      <li class="dropdown-item"><a class="btn bnt-primary" (click)="signout()">Logout</a></li>
+  </div>
+  </li>
+  </ul>
+  <ul class="navbar-nav ml-auto" id="notLoggedInUserMenu" *ngIf="!this.isLoggedIn">
+    <li class="nav-item"><a class="btn bnt-primary" [routerLink]="['auth/login']">LogIn</a></li>
+    <li class="nav-item"><a class="btn bnt-primary" [routerLink]="['auth/register']">SignUp</a></li>
+  </ul>
+  </div>
+</nav>

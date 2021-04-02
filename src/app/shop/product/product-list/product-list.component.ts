@@ -30,22 +30,29 @@ export class ProductListComponent implements OnInit {
       this.sku = sku
     })
     this._firebaseService.getUser().subscribe( user => {
-      this.uid = user.uid
+      if(user){
+        this.uid = user.uid
+      }
     }
     )
   }
 
   addToCart(product: Product, sku: ProductSKU[], quantity: any) {
-    let q = quantity.value
-    // console.log(product.name + ", " + sku[0].size + ", " + q )
-    let totalPrice = sku[0].price * q
-    let cartItem: Cart = new Cart(sku[0].id, product.id, sku[0].id, sku[0].price, q, totalPrice, 0)
-    this._firebaseService.addToCart(this.uid, cartItem).then(res => {
-      this.alertService.create("success", "Product added successfully!")
-    },
-    error => {
-      this.alertService.create("error", "Some error occurred!")
-    })
+    if(this.uid != null){
+      let q = quantity.value
+      // console.log(product.name + ", " + sku[0].size + ", " + q )
+      let totalPrice = sku[0].price * q
+      let cartItem: Cart = new Cart(sku[0].id, product.id, sku[0].id, sku[0].price, q, totalPrice, 0)
+      this._firebaseService.addToCart(this.uid, cartItem).then(res => {
+        this.alertService.create("success", "Product added successfully!")
+      },
+      error => {
+        this.alertService.create("error", "Some error occurred!")
+      })
+    }
+    else{
+      this.alertService.create('warning', "Please login to add item to your cart!")
+    }
 
   }
   viewItem(product: Product){

@@ -1,5 +1,5 @@
 <div [ngClass]="'alert-' + type"
-    [ngClass]="{'show': show, 'alert-success': type === 'success', 'alert-danger': type == 'danger'}"
+    [ngClass]="{'show': show, 'alert-success': type === 'success', 'alert-danger': type == 'danger', 'alert-warning': type == 'warning'}"
     class="alert alert-dismissible fade" role="alert">
     {{ msg }}
     <button type="button" (click)="dismiss()" class="btn btn-close" data-bs-dismiss="alert"

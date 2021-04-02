@@ -12,6 +12,8 @@ import { ProductSizeSelectComponent } from '../shared/component/product-size-sel
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { ProductReviewComponent } from './product-review/product-review.component';
 import { CreateReviewComponent } from './product-review/create-review/create-review.component';
+import { RatingComponent } from '../shared/component/rating/rating.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -26,12 +28,15 @@ import { CreateReviewComponent } from './product-review/create-review/create-rev
     ProductSizeSelectComponent,
     CartItemComponent,
     ProductReviewComponent,
-    CreateReviewComponent
+    CreateReviewComponent,
+    RatingComponent
   ],
   imports: [
     CommonModule,
     UserModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ShopModule { }
