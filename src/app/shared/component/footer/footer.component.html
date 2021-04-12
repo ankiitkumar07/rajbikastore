@@ -4,7 +4,12 @@
             <div class="row">
                 <div class="col-sm-1 col-md-4">
                     <h3 class="footer-head">About Us</h3>
-                    <p class="footer-p">RAJ BIKA was established in 2013 by Mrs. Brijesh Gaur. She is fond of making papad for her family and friends, and slowly but surely the word of her scrumptious papad spread around. RAJ BIKA has successfully spread business across the Indian market due to the high quality and unique taste of Bikaneri Papads. Due to her rich experience and knowledge about spices, pulses and manufacturing process we are serving you the best papad in the world with richest taste and aroma. </p>
+                    <p class="footer-p">Raj bika is desert city bikaner based firm. The family art and legacy from
+                        decades of blending handmade homemade products like papad, pickle, mukhwas for family and
+                        friends was then felt to be making it available globally for foodies out their and its rich
+                        aroma and taste does help it to get that taste of fame it dually deserves.
+                        <a class="link c-white" [routerLink]="['about']">Know More..</a>
+                    </p>
                 </div>
                 <div class="col-sm-1 col-md-4">
                     <h3 class="footer-head">Links</h3>
@@ -21,17 +26,20 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Name" aria-label="Username"
+                                    aria-describedby="basic-addon1">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon2"><i class="fa fa-envelope"></i></span>
-                                <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control" placeholder="Email"
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2">
                             </div>
                         </div>
                         <div class="from-group">
-                            <textarea class="form-control" name="messagee" id="message" placeholder="Your Message" cols="30" rows="5" style="resize: none;"></textarea>	
+                            <textarea class="form-control" name="messagee" id="message" placeholder="Your Message"
+                                cols="30" rows="5" style="resize: none;"></textarea>
                         </div>
                     </div>
                 </div>
@@ -51,7 +59,8 @@
         <div class="container-fluid sub-footer" style="background-color: #222;">
             <div class="row">
                 <div class="col-md-12">
-                    <p class="footer-p text-center">Developed &amp; Designed by <a href="#">Ankit Kumar</a></p>
+                    <!-- <p class="footer-p text-center">Developed &amp; Designed by <a href="#">Ankit Kumar</a></p> -->
+                    <p class="footer-p text-center">&copy; RajBika - {{ getCurrentYear() }}</p>
                 </div>
             </div>
         </div>
